@@ -1,0 +1,21 @@
+a:link {
+    color: red;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    color: darkred;
+}
+a:active {
+    color: blue;
+}
+li:first-child {
+    font-weight: bolder;
+}
+p {
+    display: none;
+}
+span:hover p {
+    display: block;
+}

@@ -1,0 +1,20 @@
+.center {
+    text-align: center;
+}
+p.large {
+    font-size: 32px;
+}
+strong {
+    color: darkred;
+}
+#main {
+    font-weight: bold;
+}
+h1, h2, h3 {
+    color: darkgoldenrod;
+    font-weight: bold;
+    font-size: 36px;
+}
+* {
+    background-color: lightgreen;
+}

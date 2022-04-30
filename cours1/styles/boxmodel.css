@@ -1,0 +1,9 @@
+div {
+    width: 350px;
+    border: darkblue solid 20px;
+    padding: 30px;
+    margin: 15px;
+}
+p {
+    font-size: 24px;
+}

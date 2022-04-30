@@ -1,0 +1,6 @@
+body { font-family: Helvetica; }
+h1 { color: dimgrey; margin-bottom: 15px; }
+.nav { list-style-type: none; padding: 0px; width: 200px; }
+.nav li a { display: block; color: white; background-color: grey;
+    padding: 5px; text-decoration: none; }
+.nav li a.featured { background-color: darkred; }

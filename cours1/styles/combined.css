@@ -1,0 +1,15 @@
+div span {
+    background-color: lightblue;
+}
+div span > p {
+    background-color: red;
+    color: white;
+}
+span + p {
+    font-weight: bold;
+}
+div ~ p {
+    font-weight: bold;
+    background-color: lightgrey;
+    color: blue;
+}

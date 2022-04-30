@@ -1,0 +1,7 @@
+body { font-family: Helvetica; }
+h1 { color: dimgrey; margin-bottom: 15px; }
+.nav { list-style-type: none; padding: 0px; }
+.nav li { display: inline-block; }
+.nav li a { color: white; background-color: grey;
+    padding: 5px; text-decoration: none; }
+.nav li a.featured { background-color: darkred; }
