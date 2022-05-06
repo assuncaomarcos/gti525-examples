@@ -1,3 +1,5 @@
+console.log(":: variables ::");
+
 let a = 10;
 let b = 9.7;
 let c = 1.997e8;

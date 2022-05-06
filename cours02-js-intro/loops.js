@@ -1,4 +1,4 @@
-console.log(":: loops.js ::");
+console.log(":: loops ::");
 
 for (let number = 0; number <= 5; number++) {
     console.log(number);

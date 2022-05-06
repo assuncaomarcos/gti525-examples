@@ -1,4 +1,4 @@
-console.log(":: conditionals.js ::");
+console.log(":: conditions ::");
 
 let x = 5;
 console.log("x == 5 : " + (x == 5));
@@ -85,7 +85,7 @@ console.log(" -------- ");
 // --------
 
 let score = 75;
-let grade = "";
+let grade;
 
 if ( score >= 80 ) {
     grade = "A";
@@ -100,3 +100,48 @@ if ( score >= 80 ) {
 }
 
 console.log("Votre résultat est " + grade);
+
+// ------ Exemples de switch ----------
+
+let expr = "Oranges";
+switch (expr) {
+    case "Oranges":
+        console.log("Oranges : 0.59 $ le kilo.");
+        break;
+    case "Pommes":
+        console.log("Pommes : 0.32 $ le kilo.");
+        break;
+    case "Bananes":
+        console.log("Bananes : 0.48 $ le kilo.");
+        break;
+    case "Cerises":
+        console.log("Cerises : 3.00 $ le kilo.");
+        break;
+    case "Mangues":
+    case "Papayes":
+        console.log("Mangues et papayes : 2.79 $ le kilo.");
+        break;
+    default:
+        console.log("Désolé, nous n'avons plus de " + expr + ".");
+}
+
+console.log("Autre chose ?");
+
+let day = 2;
+switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        console.log("J'attends le week-end avec impatience");
+        break;
+    case 6:
+        console.log("Samedi");
+        break;
+    case 7:
+        console.log("Dimanche");
+        break;
+    default:
+        console.log("Jour invalide");
+}
