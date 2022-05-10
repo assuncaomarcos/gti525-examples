@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Game Awards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<h4>The Game Awards</h4>
+<div id="games"></div>
+
+<script>
+  const GAMES = [
+    {year: 2014, name: "Dragon Age: Inquisition", genre: "Action role-playing", developer: "BioWare"},
+    {year: 2015, name: "The Witcher 3: Wild Hunt", genre: "Action role-playing", developer: "CD Projekt Red"},
+    {year: 2016, name: "Overwatch", genre: "First-person shooter", developer: "Blizzard Entertainment"},
+    {year: 2017, name: "The Legend of Zelda: Breath of the Wild", genre: "Action-adventure", developer: "Nintendo EPD"},
+    {year: 2018, name: "God of War", genre: "Action-adventure", developer: "Santa Monica Studio"},
+    {year: 2019, name: "Sekiro: Shadows Die Twice", genre: "Action-adventure", developer: "FromSoftware"},
+    {year: 2020, name: "The Last of Us Part II", genre: "Action-adventure", developer: "Naughty Dog"},
+    {year: 2021, name: "It Takes Two", genre: "Action-adventure", developer: "Hazelight Studios"},
+  ];
+
+  function buildTable(data) {
+    let table = document.createElement("table");
+    let fields = Object.keys(data[0]);
+
+    let header = document.createElement("tr");
+    fields.forEach( (field) => {
+      let cell = document.createElement("th");
+      cell.appendChild(document.createTextNode(field));
+      header.appendChild(cell);
+    });
+    table.appendChild(header);
+
+    data.forEach( (object) => {
+      let row = document.createElement("tr");
+      fields.forEach( (field) => {
+        let cell = document.createElement("td");
+        cell.appendChild(document.createTextNode(object[field]));
+        if (typeof object[field] == "number") {
+          cell.style.textAlign = "right";
+        }
+        row.appendChild(cell);
+      });
+      table.appendChild(row);
+    });
+
+    return table;
+  }
+
+  document.getElementById("games").appendChild(buildTable(GAMES));
+</script>
+</body>
+</html>

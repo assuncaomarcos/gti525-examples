@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sélection d’élément par class</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<h1 class="teal-text text-darken-4">Marcie Johnson</h1>
+<div class="row teal-text text-darken-4">
+    <p>Marcie Johnson ou Marcie Carlin ou Marcie 1 est un personnage du comic
+        strip Peanuts de Charles Schulz. Elle est gentille et intellectuelle.
+        Elle a fait sa première apparition officielle le 20 juillet 1971.
+    </p>
+</div>
+<div>
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/24/Marcie_from_Peanuts.png" width="200px">
+</div>
+<div class="row teal-text text-darken-4">
+    <p>Marcie a des cheveux courts et noirs. Elle porte toujours un jean et un t-shirt.</p>
+</div>
+
+<script>
+    let elems = document.getElementsByClassName("teal-text");
+    if (elems.length > 0) {
+        for (let i= 0; i < elems.length; i++) {
+            console.log(elems[i].nodeName);
+        }
+    }
+</script>
+</body>
+</html>

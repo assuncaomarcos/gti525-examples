@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer des images</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div id="characters"></div>
+<button id="btnCreate" class="btn">Ajoutez</button>
+<button id="btnDelete" class="btn">Supprimez</button>
+
+<script>
+    const wiki = "https://upload.wikimedia.org/wikipedia/en/";
+    const CHARACTERS = [
+        {src: "5/53/Snoopy_Peanuts.png", alt: "Snoopy", height: 100 },
+        {src: "2/22/Charlie_Brown.png", alt: "Charlie Brown", height: 150},
+        {src: "2/24/Marcie_from_Peanuts.png", alt: "Marcie", height: 150},
+        {src: "5/5e/Linus_van_Pelt.gif", alt: "Linus van Pelt", height: 120},
+        {src: "e/e9/Lucy_van_Pelt.png", alt: "Lucy van Pelt", height: 150},
+        {src: "a/a0/Peppermint_Patty.png", alt: "Peppermint Patty", height: 150},
+        {src: "8/88/Sally_Brown.png", alt: "Sally Brown", height: 150},
+        {src: "b/b7/Schroeder_Piano.png", alt: "Schroeder", height: 120},
+        {src: "e/e1/PigPen_(Peanuts).png", alt: "Pig-Pen", height: 150},
+        {src: "9/9d/Franklin_(Peanuts).png", alt: "Franklin", height: 150},
+        {src: "d/db/Woodstock.png", alt: "Woodstock", height: 80},
+    ];
+
+    function deleteImages() {
+        let div = document.getElementById("characters");
+        let child = div.lastElementChild;
+        while (child) {
+            div.removeChild(child);
+            child = div.lastElementChild;
+        }
+    }
+
+    function createImages() {
+        let div = document.getElementById("characters");
+        CHARACTERS.forEach( (object) => {
+            let keys = Object.keys(object);
+            let img = document.createElement("img");
+            keys.forEach( (key) => {
+                let value = (key == "src") ? wiki + object[key] : object[key]
+                img[key] = value;
+            });
+            div.appendChild(img);
+        });
+    }
+
+    document.getElementById("btnCreate").addEventListener('click', createImages);
+    document.getElementById("btnDelete").addEventListener('click', deleteImages);
+</script>
+</body>
+</html>

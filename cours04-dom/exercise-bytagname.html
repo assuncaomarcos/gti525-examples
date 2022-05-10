@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personnages de Peanuts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<div class="row valign-wrapper center-align">
+  <div class="col s3">
+    <h4>Snoopy</h4>
+    <p><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png" height="250px"></p>
+  </div>
+  <div class="col s3">
+    <h4>Charlie Brown</h4>
+    <p><img src="https://upload.wikimedia.org/wikipedia/en/2/22/Charlie_Brown.png" height="350px"></p>
+  </div>
+  <div class="col s3">
+    <h4>Marcie Johnson</h4>
+    <p><img src="https://upload.wikimedia.org/wikipedia/en/2/24/Marcie_from_Peanuts.png" height="350px"></p>
+  </div>
+</div>
+
+<script>
+  const byTagName = (node, str) => {
+    let nodes = [];
+    let tag = str.toUpperCase();
+
+    function findElements(node) {
+      for (let i = 0; i < node.childNodes.length; i++) {
+        let child = node.childNodes[i];
+        if (child.nodeType == Node.ELEMENT_NODE && child.nodeName == tag) {
+          nodes.push(child);
+        }
+        findElements(child);
+      }
+    }
+
+    findElements(node);
+    return nodes;
+  }
+
+  let elems = byTagName(document, "img");
+  console.log("Elements : " + elems);
+</script>
+
+</body>
+</html>

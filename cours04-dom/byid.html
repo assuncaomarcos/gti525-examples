@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sélection d’élément par id</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<h1>Charlie Brown</h1>
+<p>Charlie Brown est aussi un personnage du comic strip Peanuts.
+    Lui et son chien Snoopy sont les principaux protagonistes de cette
+    bande dessinée créée en 1950 par Charles M. Schulz,
+    et publiée pendant près d'un demi-siècle par le même auteur.</p>
+<p><img id="charlie" src="https://upload.wikimedia.org/wikipedia/en/2/22/Charlie_Brown.png" width="200px"></p>
+
+<script>
+    let charlie = document.getElementById("charlie");
+    if (charlie === null) {
+        throw new Error("Élément non trouvé: " + charlie) ;
+    }
+    console.log(charlie.src);
+</script>
+</body>
+</html>

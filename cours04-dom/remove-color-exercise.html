@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sélectionner et supprimer une coleur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div class="row">
+    <div class="col s3">
+        <select id="color" class="browser-default">
+            <option value="" disabled selected>Choisissez une couleur</option>
+            <option value="Rouge">Rouge</option>
+            <option value="Bleu">Bleu</option>
+            <option value="Jaune">Jaune</option>
+            <option value="Vert">Vert</option>
+            <option value="Blanc">Blanc</option>
+            <option value="Rose">Rose</option>
+            <option value="Noire">Noire</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col s3">
+        <input type="button" onclick="removeColor()" value="Sélectionner et supprimer" class="btn">
+    </div>
+</div>
+
+<script>
+  function removeColor() {
+    let s = document.getElementById("color");
+    s.remove(s.selectedIndex);
+  }
+
+  document.getElementById("btn").addEventListener('click', removeColor);
+</script>
+</body>
+</html>
