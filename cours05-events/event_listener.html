@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Enregistrement de gestionnaires</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<input type="button" id="mybutton" value="Cliquez sur moi" class="btn">
+<script>
+    let b = document.getElementById("mybutton");
+    b.addEventListener("click", () => {
+        console.log("hello");
+    }, false);
+
+    b.addEventListener("click", () => {
+        console.log("world");
+    }, false);
+</script>
+</body>
+</html>

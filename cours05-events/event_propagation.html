@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Propagation des événements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div class="col s6 card-panel brown lighten-4 center-align">
+    <button class="btn">Cliquez sur moi</button>
+</div>
+
+<script>
+    let div = document.querySelector("div");
+    let button = document.querySelector("button");
+
+    div.addEventListener("click", () => {
+        console.log("Gestionnaire du div.");
+    });
+
+    button.addEventListener("click", event => {
+        console.log("Gestionnaire du bouton.");
+        event.stopPropagation();
+    });
+</script>
+</body>
+</html>

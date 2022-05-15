@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Émettre un événement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<input type="button" id="mybutton" value="Cliquez sur moi" class="btn">
+<script>
+
+    const handleSmile = function() {
+        console.log("Souris à la vie et la vie te sourira");
+    };
+
+    let button = document.getElementById("mybutton");
+    button.addEventListener("smile", handleSmile, false);
+
+    // Création d'un événement
+    let event = new Event("smile");
+    button.dispatchEvent(event);
+</script>
+</body>
+</html>

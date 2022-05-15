@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Déterminer l'ordre des événements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div id="one" class="card-panel blue lighten-1">
+    <div id="two" class="card-panel deep-purple lighten-1">
+        <div id="three" class="card-panel teal darken-3">
+            <div id="four" class="card-panel indigo darken-2 center-align">
+                <button id="btn" class="btn">Cliquez sur moi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function bubbleHandler (e) {
+        console.log("Gestionnaire bubble appelé sur: " + e.currentTarget.id);
+        console.log("Cible de l'événement: " + e.target.id);
+        if (e.target.id == "three") {
+            e.stopImmediatePropagation();
+        }
+    }
+
+    function bubbleHandler2 (e) {
+        console.log("Gestionnaire bubble 2 appelé sur: " +  e.currentTarget.id);
+        console.log("Cible de l'événement: " + e.target.id);
+    }
+
+    function captureHandler (e) {
+        console.log("Gestionnaire capture appelé sur: " +  e.currentTarget.id);
+        console.log("Cible de l'événement: " + e.target.id);
+    }
+
+    const one = document.getElementById("one");
+    const two = document.getElementById("two");
+    const three = document.getElementById("three");
+    const four = document.getElementById("four");
+    const btn = document.getElementById("btn");
+
+    one.addEventListener("click", bubbleHandler);
+    two.addEventListener("click", bubbleHandler);
+    three.addEventListener("click", bubbleHandler);
+    three.addEventListener("click", bubbleHandler2);
+    four.addEventListener("click", bubbleHandler);
+    btn.addEventListener("click", bubbleHandler);
+
+    one.addEventListener("click", captureHandler, true);
+    two.addEventListener("click", captureHandler, true);
+    three.addEventListener("click", captureHandler, true);
+    four.addEventListener("click", captureHandler, true);
+    btn.addEventListener("click", captureHandler, true);
+
+</script>
+</body>
+</html>

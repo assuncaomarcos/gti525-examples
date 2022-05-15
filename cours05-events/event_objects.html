@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Les objets événements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<button id="button" class="btn">Cliquez sur moi</button>
+<script>
+    let button = document.getElementById("button");
+    button.addEventListener("mousedown", event => {
+        if (event.button == 0) {
+            console.log("Bouton gauche de la souris");
+        } else if (event.button == 1) {
+            console.log("Bouton du milieu de la souris");
+        } else if (event.button == 2) {
+            console.log("Bouton droit de la souris");
+        }
+    });
+</script>
+</body>
+</html>

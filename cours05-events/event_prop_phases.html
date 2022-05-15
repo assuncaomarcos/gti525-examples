@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Phases de propagation d'événements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div class="col s6 card-panel brown lighten-4 center-align">
+    <button class="btn">Cliquez sur moi</button>
+</div>
+
+<script>
+
+    function handlerDiv(event) {
+        console.log("Gestionnaire du div.");
+    }
+
+    function handlerBtn(event) {
+        console.log("Gestionnaire du bouton.");
+    }
+
+    let div = document.querySelector("div");
+    let button = document.querySelector("button");
+
+    div.addEventListener("click", handlerDiv, true);
+    button.addEventListener("click", handlerBtn, true);
+
+</script>
+</body>
+</html>
