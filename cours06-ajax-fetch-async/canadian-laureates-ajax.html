@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canadiens lauréats du prix Nobel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<style>
+    body { font-family: Helvetica; }
+    td { padding: 2px 5px; }
+    th { background-color: lightgrey; padding: 4px 5px; }
+</style>
+
+<body>
+<h3>Canadiens lauréats du prix Nobel</h3>
+<div id="content"></div>
+
+<script>
+    // Lance une requête et recupère le JSON de réponse
+    function fetchData(url, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open('GET', url);
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status <= 299) {
+                callback(null, xhr.response);
+            } else {
+                callback(new Error(`Erreur réseau: ${xhr.status}, ${xhr.statusText}`));
+            }
+        };
+        xhr.onerror = () => callback(new Error('La requête a échoué'));
+        xhr.send();
+    }
+
+    /* Le JSON de réponse a plusieurs objets imbriqués.
+       Cette founction cherche une proprieté à partir d'une chaine.
+       Ex. birth.place.country.en */
+    function findProperty(obj, prop, defValue = null) {
+        prop = prop.split('.');
+        for (let i = 0; i < prop.length; i++) {
+            if (typeof obj[prop[i]] == 'undefined')
+                return defValue;
+            obj = obj[prop[i]];
+        }
+        return obj;
+    }
+
+    // Pour construire le tableau avec les résultats
+    function buildTable(data, fields) {
+        let table = document.createElement("table");
+
+        // Crée l'en-tête du tableau
+        let header = document.createElement("tr");
+        Object.keys(fields).forEach((field) => {
+            let cell = document.createElement("th");
+            cell.appendChild(document.createTextNode(fields[field]));
+            header.appendChild(cell);
+        });
+        table.appendChild(header);
+
+        // Crée les lignes du tableau
+        data.forEach((object) => {
+            let row = document.createElement("tr");
+            Object.keys(fields).forEach((field) => {
+                let cell = document.createElement("td");
+                cell.appendChild(document.createTextNode(findProperty(object, field)));
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        });
+        return table;
+    }
+
+    const API_URL = 'https://api.nobelprize.org/2.1/';
+    const FIELDS = {
+        "fullName.en": "Nom",
+        "birth.place.city.en": "Ville de naissance",
+        "birth.place.country.en": "Pays",
+    };
+
+    const country = 'Canada';
+    const url = `${API_URL}/laureates?birthCountry=${country}`;
+
+    fetchData(url, (err, data) => {
+        if (err) {
+            document.getElementById("content").innerHTML = JSON.stringify(err.message);
+        } else {
+            let table = buildTable(data["laureates"], FIELDS);
+            document.getElementById("content").appendChild(table);
+        }
+    });
+</script>
+</body>
+</html>

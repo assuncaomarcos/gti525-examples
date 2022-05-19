@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple Fetch - image</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<style>
+    span {
+        padding: 1px 8px;
+        display: table;
+    }
+</style>
+
+<body>
+<h3>Exemple Fetch</h3>
+<img id="image1" src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png" height="250px"/>
+<span><button class="btn" id="btn1" type="button">Charger d'image</button></span>
+
+<script>
+    const CHARACTERS = [
+        {file: "5/53/Snoopy_Peanuts.png", name: "Snoopy"},
+        {file: "2/22/Charlie_Brown.png", name: "Charlie Brown"},
+        {file: "2/24/Marcie_from_Peanuts.png", name: "Marcie"},
+        {file: "5/5e/Linus_van_Pelt.gif", name: "Linus van Pelt"},
+        {file: "e/e9/Lucy_van_Pelt.png", name: "Lucy van Pelt"},
+        {file: "a/a0/Peppermint_Patty.png", name: "Peppermint Patty"},
+        {file: "8/88/Sally_Brown.png", name: "Sally Brown"},
+        {file: "b/b7/Schroeder_Piano.png", name: "Schroeder"},
+        {file: "e/e1/PigPen_(Peanuts).png", name: "Pig-Pen"},
+        {file: "9/9d/Franklin_(Peanuts).png", name: "Franklin"},
+        {file: "d/db/Woodstock.png", name: "Woodstock"},
+    ];
+    const wiki = "https://upload.wikimedia.org/wikipedia/en/";
+
+    function changeImage() {
+        const image = document.getElementById("image1");
+        const character = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
+        const url = `${wiki}/${character.file}`;
+
+        // fetch pour obtenir la ressource
+        fetch(url)
+            .then(function (response) {
+                return response.blob();
+            })
+            .then(function (blob) {
+                const objectURL = URL.createObjectURL(blob);
+                image.src = objectURL;
+            });
+    }
+
+    // ajout du gestionaire d'evenements
+    document.getElementById("btn1").addEventListener("click", changeImage);
+
+</script>
+</body>
+</html>

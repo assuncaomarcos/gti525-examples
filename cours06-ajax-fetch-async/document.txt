@@ -1,0 +1,5 @@
+<span class="card-title">Cours GT525 - AJAX</span>
+<p>Ce cours fournit des exemples sur comment utiliser AJAX.</p>
+<p>AJAX permet de mettre à jour des parties d’une page sans avoir besoin de la rafraîchir complementment.</p>
+<p>Cette fonctionnalité permet d'exécuter du code de façon asynchrone.</p>
+<p>Elle peut aussi être utilisé pour créer des applications client-serveur plus complexes.</p>

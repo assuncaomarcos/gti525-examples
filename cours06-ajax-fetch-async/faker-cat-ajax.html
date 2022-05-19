@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Faker - Exemple chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+<div id="content"></div>
+
+<script>
+    // Lance une requête et recupère le JSON de réponse
+    function fetchData(url, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open('GET', url);
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status <= 299) {
+                callback(null, xhr.response);
+            } else {
+                callback(new Error(`Erreur réseau: ${xhr.status}, ${xhr.statusText}`));
+            }
+        };
+        xhr.onerror = () => callback(new Error('La requête a échoué'));
+        xhr.send();
+    }
+
+    const API_URL = 'https://fakerapi.it/api/v1';
+    const type = 'kittens';
+    const height = 300;
+    const quantity = 2;
+    const url = `${API_URL}/images?_quantity=${quantity}&_type=${type}&_height=${height}`;
+
+    fetchData(url, (err, json) => {
+        if (err || json.code != 200) {
+            let txt = document.createTextNode(JSON.stringify(err.message));
+            document.getElementById("content").appendChild(txt);
+        } else {
+            json.data.forEach( item => {
+                let h4 = document.createElement("h4");
+                h4.innerText = item.title;
+                let img = document.createElement("img");
+                img.src = item.url;
+                let p = document.createElement("p");
+                p.innerText = item.description;
+                document.getElementById("content").append(h4, img, p);
+            });
+        }
+    });
+</script>
+</body>
+</html>
