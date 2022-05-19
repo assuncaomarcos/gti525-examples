@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple async planetes</title>
+</head>
+<body>
+<div id="content"></div>
+<script>
+    async function fetchJSON(url) {
+        const response = await fetch(url);
+        if(!response.ok) {
+            throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+        return json = await response.json();
+    }
+
+    const baseUrl = 'https://swapi.dev/api/planets';
+
+    async function fetchPlanets() {
+        let page = 1;
+        let json = await fetchJSON(baseUrl);
+        printResults(json);
+        while (json.next != null) {
+            let url = `${baseUrl}?page=${++page}`;
+            json = await fetchJSON(url);
+            printResults(json);
+        }
+    }
+
+    function printResults(json) {
+        const div = document.getElementById("content");
+        for (let planet of json.results) {
+            let p = document.createElement("p");
+            p.innerText = planet.name;
+            div.appendChild(p);
+        }
+    }
+
+    fetchPlanets();
+
+</script>
+</body>
+</html>

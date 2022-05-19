@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple Promise.all</title>
+</head>
+<body>
+<div id="content"></div>
+
+<script>
+  // Fonction qui enveloppe fetch et renvoie une promesse
+  function fetchJSON(url) {
+    return fetch(url)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Erreur HTTP : ${response.status}`);
+              } else {
+                return response.json();
+              }
+            })
+            .catch(e => {
+              console.log(`Problème avec la récupération de ${url}: ${e.message}`);
+            });
+  }
+
+  // Les catégories de prix Nobels
+  const categories = ["che", "med", "lit", "pea", "eco", "phy"];
+  const baseUrl = 'https://api.nobelprize.org/2.1/nobelPrizes?nobelPrizeYear=2021&nobelPrizeCategory=';
+
+  // Crée un tableau de promesses
+  const promises = [];
+  categories.forEach(category => {
+    promises.push(fetchJSON(baseUrl + category));
+  });
+
+  // Attend que toutes les promesses soient remplies
+  Promise.all(promises).then(values => {
+    const div = document.getElementById("content");
+    values.forEach(json => {
+      let p = document.createElement("p");
+      p.innerText = "Promesse: " + json.meta.nobelPrizeCategory;
+      div.append(p);
+    });
+  });
+</script>
+</body>
+</html>

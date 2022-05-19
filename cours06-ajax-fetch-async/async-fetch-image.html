@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple createImage avec async</title>
+</head>
+<body>
+<div id="content"></div>
+<script>
+  const url = 'https://upload.wikimedia.org/wikipedia/en/a/a0/Peppermint_Patty.png';
+
+  // fonction async
+  async function createImage(url) {
+    const response = await fetch(url); // attend que la promesse soit remplie
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP : ${response.status}`);
+    }
+    // attend que la promesse soit remplie avant de faire l'affectation
+    // et de retourner le contenu du blob
+    return blob = await response.blob();
+  }
+
+  // createImage() traitée comme une promesse
+  createImage(url)
+          .then(blob => {
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(blob);
+            document.getElementById('content').append(img);
+          })
+          .catch(e => {
+            console.log(`Problème avec l'opération de récupération : ${e.message}`);
+          });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple timeoutPromise</title>
+</head>
+<body>
+
+<script>
+  function timeoutPromise(message, interval) {
+    return new Promise((resolve, reject) => {
+      if (message === '' || typeof message !== 'string') {
+        reject(`Le message est vide ou n'est pas une chaîne de caractères`);
+      } else if (interval < 0 || typeof interval !== 'number') {
+        reject(`L'intervalle est négatif ou n'est pas un nombre`);
+      } else {
+        setTimeout(() => {
+          resolve(message);
+        }, interval);
+      }
+    });
+  };
+
+  const messages = ['Bonjour', ''];
+
+  messages.forEach(msg => { // appelle le code pour chaque message
+    timeoutPromise(msg, 1000)
+            .then(message => {
+              console.log('Promesse remplie: ' + message);
+            })
+            .catch(e => {
+              console.log('Erreur : ' + e);
+            });
+  });
+</script>
+</body>
+</html>
