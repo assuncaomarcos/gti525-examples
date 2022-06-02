@@ -1,0 +1,16 @@
+{
+  "name": "http_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "movie_server.js",
+  "scripts": {
+    "start": "node movie_server.js",
+    "dev": "nodemon movie_server.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "word_count",
+  "version": "1.0.0",
+  "description": "",
+  "main": "word_count.js",
+  "scripts": {
+    "start": "node word_count.js",
+    "dev": "nodemon word_count.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

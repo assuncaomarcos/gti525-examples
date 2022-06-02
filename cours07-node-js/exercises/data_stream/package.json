@@ -1,0 +1,16 @@
+{
+  "name": "string_finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "string_finder.js",
+  "scripts": {
+    "start": "node string_finder.js",
+    "dev": "nodemon string_finder.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
