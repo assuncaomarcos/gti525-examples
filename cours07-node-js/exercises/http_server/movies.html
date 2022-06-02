@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des films inspirés des jeux vidéo</title>
+    <style>
+        body { font-family: Helvetica; }
+        td { padding: 2px 5px; }
+        th { background-color: lightgrey; padding: 4px 5px; }
+    </style>
+</head>
+<body>
+
+<h1>Liste des films inspirés des jeux vidéo</h1>
+<div id="content"></div>
+<script>
+
+    // Pour construire le tableau avec les résultats
+    function buildTable(data, fields) {
+        let table = document.createElement("table");
+
+        // Crée l'en-tête du tableau
+        let header = document.createElement("tr");
+        Object.keys(fields).forEach((field) => {
+            let cell = document.createElement("th");
+            cell.appendChild(document.createTextNode(fields[field]));
+            header.appendChild(cell);
+        });
+        table.appendChild(header);
+
+        // Crée les lignes du tableau
+        data.forEach((object) => {
+            let row = document.createElement("tr");
+            Object.keys(fields).forEach((field) => {
+                let cell = document.createElement("td");
+                cell.appendChild(document.createTextNode(object[field]));
+                if (field == "box_office") { cell.style.textAlign = "right"; }
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        });
+        return table;
+    }
+
+    function checkResponse(response) {
+        if (!response.ok)
+            throw Error(`${response.status} - ${response.statusText}`);
+        return response;
+    }
+
+    const FIELDS = {
+        "title": "Nom",
+        "release_date": "Date",
+        "box_office": "Billetterie en dolar",
+        "distributor": "Distributeur",
+        "game_publisher": "Developpeur"
+    };
+
+    const url = 'http://localhost:3000/movies';
+
+    fetch(url)
+        .then(checkResponse)
+        .then(response => response.json())
+        .then(data => {
+            let table = buildTable(data, FIELDS);
+            document.getElementById("content").appendChild(table);
+        })
+        .catch(error => document.getElementById("content").innerHTML = error.message);
+
+</script>
+</body>
+</html>

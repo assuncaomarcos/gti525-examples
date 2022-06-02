@@ -36,8 +36,13 @@ class ToJson extends Transform {
 
 const server = http.createServer((req, res) => {
     if (req.url.startsWith("/movies")) {
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
+        const headers = {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS, POST, GET"
+        };
+
+        res.writeHead(200, headers);
         const stream = fs.createReadStream(dataset);
         stream.pipe(new ToJson()).pipe(res);
     } else {
