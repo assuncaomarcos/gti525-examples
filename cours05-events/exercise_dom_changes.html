@@ -74,13 +74,11 @@
     - p en bleu (blue)
     */
     setTimeout( () => {
-
-
+        // 2. Invoquer trapColorChanges afin d'intercepter les noeuds dont la couleur
+        // change en rouge (red), afin de plutôt remplacer la couleur par vert (green)
+        trapColorChanges("red", "green");
     }, 5000);
 
-    // 2. Invoquer trapColorChanges afin d'intercepter les noeuds dont la couleur
-    // change en rouge (red), afin de plutôt remplacer la couleur par vert (green)
-    trapColorChanges("red", "green");
 </script>
 </body>
 </html>
