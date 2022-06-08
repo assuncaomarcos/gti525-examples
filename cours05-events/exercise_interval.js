@@ -7,7 +7,7 @@ const invokeTimes = (func, noTimes, time) => {
     let intervalHandler = () => {
         console.log("invocation " + count);
         func(count);
-        count = count + 1;
+        count += 1;
         if (count == noTimes) {
             clearInterval(interval);
         }
