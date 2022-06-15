@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <title>Lauréats du prix Nobel par catégorie</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
-        body { font-family: Helvetica; }
-        td { padding: 2px 5px; }
-        th { background-color: lightgrey; padding: 4px 5px; }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="common.js"></script>
 </head>
 
 <body>
-<h3>Lauréats du prix Nobel par catégorie</h3>
+<div class="container">
+    <h4>Lauréats du prix Nobel par catégorie</h4>
 
-<div class="row">
-    <label for="fcategory">Catégorie:</label>
-    <select class="browser-default" id="fcategory" name="category">
-        <option value="--">Choisissez une catégorie</option>
-        <option value="che">Chimie</option>
-        <option value="med">Physiologie ou médecine</option>
-        <option value="lit">Littérature</option>
-        <option value="pea">Paix</option>
-        <option value="eco">Économie</option>
-        <option value="phy">Physique</option>
-    </select>
+    <div class="row">
+        <label for="fcategory">Catégorie:</label>
+        <select id="fcategory" name="category">
+            <option value="--">Choisissez une catégorie</option>
+            <option value="che">Chimie</option>
+            <option value="med">Physiologie ou médecine</option>
+            <option value="lit">Littérature</option>
+            <option value="pea">Paix</option>
+            <option value="eco">Économie</option>
+            <option value="phy">Physique</option>
+        </select>
+    </div>
+
+    <div class="row" id="content"></div>
 </div>
-
-<div id="content"></div>
 
 <script>
     // Lance une requête et recupère le JSON de réponse
