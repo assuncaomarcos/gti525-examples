@@ -1,0 +1,18 @@
+{
+  "name": "json-mock-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "json_server.js",
+  "scripts": {
+    "start": "node json_server.js",
+    "dev": "nodemon json_server.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "ISC",
+  "dependencies": {
+    "casual": "^1.6.2",
+    "json-server": "^0.17.0",
+    "nodemon": "^2.0.15"
+  }
+}

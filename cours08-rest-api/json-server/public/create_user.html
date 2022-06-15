@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un nouvel utilisateur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h3>Ajout d'un nouvel utilisateur</h3>
+    <form action="" method="get" class="form-user" id="form-user">
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="lastname">Nom: </label>
+                <input type="text" name="lastname" id="lastname" required>
+            </div>
+            <div class="input-field col s6">
+                <label for="firstname">Prénom: </label>
+                <input type="text" name="firstname" id="firstname" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="address">Adresse: </label>
+                <input type="text" name="address" id="address" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="city">Ville: </label>
+                <input type="text" name="city" id="city" required>
+            </div>
+
+            <div class="input-field col s6">
+                <select id="province" name="province" required>
+                    <option>Alberta</option>
+                    <option>Colombie-Britannique</option>
+                    <option>Île-du-Prince-Édouard</option>
+                    <option>Manitoba</option>
+                    <option>Nouveau-Brunswick</option>
+                    <option>Nouvelle-Écosse</option>
+                    <option>Ontario</option>
+                    <option>Québec</option>
+                    <option>Saskatchewan</option>
+                    <option>Terre-Neuve-et-Labrador</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="phone">Téléphone: </label>
+                <input type="text" name="phone" id="phone" placeholder="Téléphone" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="submit" value="Soumettre" class="btn">
+            </div>
+        </div>
+    </form>
+
+    <!-- Modal pour aficher la réponse -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Utilisateur Ajouté</h4>
+            <p id="api-response"></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fermer</a>
+        </div>
+    </div>
+</div>
+<script>
+
+    /**
+     * Le code JavaScript de cet exemple est adapté de l'exemple disponible sur:
+     * https://simonplend.com/how-to-use-fetch-to-post-form-data-as-json-to-your-api/
+     */
+
+    /**
+     * Fonction pour publier des données au format JSON et récupérer la
+     * réponse envoyée par le serveur.
+     *
+     * @param url - URL de la ressource
+     * @param formData - instance de `FormData`
+     * @return {Object} - Réponse envoyée par le serveur
+     */
+    async function postFormDataAsJson(url, formData) {
+        const plainFormData = Object.fromEntries(formData.entries());
+        const formDataJsonString = JSON.stringify(plainFormData);
+
+        const fetchOptions = {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json"
+            },
+            body: formDataJsonString,
+        };
+
+        const response = await fetch(url, fetchOptions);
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            throw new Error(errorMessage);
+        }
+
+        return response.json();
+    }
+
+    /**
+     * Gestionnaire d'événements pour un événement de soumission de formulaire.
+     * Pour plus d'infor sur FormData:
+     * https://developer.mozilla.org/fr/docs/Web/API/FormData
+     *
+     * @param {SubmitEvent} événement
+     */
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+
+        try {
+            const formData = new FormData(form);
+            const responseData = await postFormDataAsJson("/users", formData);
+
+            document.getElementById("api-response").innerText = JSON.stringify(responseData, null, 2);
+            messageModal.open();
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    let messageModal = undefined;
+    window.addEventListener('DOMContentLoaded', () => {
+        // Initialiser les selects et modales (MaterializeCSS)
+        let elems = document.querySelectorAll('select');
+        let instances = M.FormSelect.init(elems);
+        elems = document.querySelectorAll('.modal');
+        instances = M.Modal.init(elems);
+        messageModal = instances[0]; // reference vers la modale
+
+        // Enregistrer le gestionnaire d'événement
+        const formUser = document.getElementById("form-user");
+        formUser.addEventListener("submit", handleFormSubmit);
+    });
+
+</script>
+</body>
+</html>
