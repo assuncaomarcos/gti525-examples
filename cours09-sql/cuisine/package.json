@@ -1,0 +1,20 @@
+{
+  "name": "cuisine-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cuisine_app.js",
+  "scripts": {
+    "start": "node cuisine_app.js",
+    "dev": "nodemon cuisine_app.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "sqlite3": "^5.0.8"
+  }
+}
