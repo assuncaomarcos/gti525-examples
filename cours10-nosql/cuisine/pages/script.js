@@ -1,5 +1,5 @@
 // Quelques variables globales
-const apiUrl = "/v1";
+const apiUrl = "/v2";
 
 function checkResponse(response) {
     if (!response.ok)
@@ -77,7 +77,7 @@ async function buildDishList() {
 
                 link.addEventListener('click', async (e) => {
                     e.preventDefault();
-                    await showRecipe(Number(dish.id));
+                    await showRecipe(Number(dish.dish_id));
                 })
             });
         }

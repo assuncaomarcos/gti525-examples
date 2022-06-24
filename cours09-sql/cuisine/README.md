@@ -2,7 +2,7 @@
 
 Le but de cette application est de fournir quelques notions de base sur les bases de données, les API REST, et Express.js.
 
-Par défaut, l’application fonctionnera avec une base de données SQLite fournie dans le dossier `data/`, mais 
+Par défaut, l’application fonctionnera avec une base de données SQLite3 fournie dans le dossier `data/`, mais 
 il est aussi possible d’utiliser MariaDB ou MySQL. Il suffit de créer la base de données et de changer 
 le driver dans le dossier `db/`:
 

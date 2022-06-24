@@ -1,0 +1,74 @@
+{
+  "dish_id": 4,
+  "name": "Fettucine boscaiola",
+  "veg": 0,
+  "photo": "https://3catsfoodie.com/wp-content/uploads/2020/11/8A43059A-AA39-4FE4-8875-EDCAACF4A933_1_201_a-1024x748.jpeg",
+  "ingredients": [
+    {
+      "item_id": 1,
+      "quantity": 500,
+      "name": "fettucine",
+      "unit": "g"
+    },
+    {
+      "item_id": 2,
+      "quantity": 2,
+      "name": "huile d'olive",
+      "unit": "c. à c."
+    },
+    {
+      "item_id": 3,
+      "unit": "g",
+      "quantity": 200,
+      "name": "champignons de Paris émincés"
+    },
+    {
+      "item_id": 4,
+      "name": "ail",
+      "quantity": 2,
+      "unit": "gousse"
+    },
+    {
+      "item_id": 5,
+      "unit": "g",
+      "quantity": 200,
+      "name": "jambon blanc grossièrement haché"
+    },
+    {
+      "item_id": 6,
+      "name": "vin blanc sec",
+      "quantity": 60,
+      "unit": "ml"
+    },
+    {
+      "item_id": 7,
+      "name": "crème liquide",
+      "quantity": 300,
+      "unit": "ml"
+    },
+    {
+      "item_id": 8,
+      "unit": "c. à s.",
+      "name": "ciboulette fraîche grossièrement hachée",
+      "quantity": 2
+    }
+  ],
+  "directions": [
+    {
+      "step_id": 1,
+      "description": "Faites cuire les pâtes dans une grande casserole d'eau bouillante, puis égouttez-les."
+    },
+    {
+      "step_id": 2,
+      "description": "Pendant ce temps, faites chauffer l'huile d'olive dans une grande sauteuse. Faites revenir les champignons, l'ail et le jambon, en remuant, jusqu'à ce que les ingrédients soient légèrement dorés. Ajoutez le vin et faites bouillir sans couvrir, jusqu'à ce qu'il réduise de moitié."
+    },
+    {
+      "step_id": 3,
+      "description": "Ajoutez la crème liquide dans la sauteuse et baissez le feu. Laissez mijoter à découvert jusqu'à ce que la sauce épaississe légèrement. "
+    },
+    {
+      "step_id": 4,
+      "description": "Ajoutez la ciboulette et les pâtes. Mélangez et servez."
+    }
+  ]
+}

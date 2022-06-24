@@ -11,7 +11,7 @@ class DishModel {
     }
 
     ingredients(dishId) {
-        const sql = `SELECT quantity, unit, name FROM ingredients 
+        const sql = `SELECT item_id, quantity, unit, name FROM ingredients 
                 INNER JOIN items ON ingredients.item_id = items.id 
                 WHERE ingredients.dish_id = ?`;
         return db.query(sql, [dishId]);
