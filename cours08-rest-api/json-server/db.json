@@ -89,33 +89,6 @@
       "city": "Beatricefurt",
       "province": "Northwest Territories",
       "phone": "107-756-2711"
-    },
-    {
-      "lastname": "Dias",
-      "firstname": "Marcos",
-      "address": "Bould LaSalle",
-      "city": "Verdun",
-      "province": "Colombie-Britannique",
-      "phone": "555 555 5555",
-      "id": 11
-    },
-    {
-      "lastname": "Dias",
-      "firstname": "Marcos",
-      "address": "Bould LaSalle",
-      "city": "Verdun",
-      "province": "Alberta",
-      "phone": "555 555 5555",
-      "id": 12
-    },
-    {
-      "lastname": "Dias",
-      "firstname": "Marcos",
-      "address": "Bould LaSalle",
-      "city": "Verdun",
-      "province": "Alberta",
-      "phone": "555 555 5555",
-      "id": 13
     }
   ],
   "posts": [
