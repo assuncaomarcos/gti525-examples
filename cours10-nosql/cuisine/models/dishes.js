@@ -14,7 +14,7 @@ class DishModel {
     async dishById(dishId) {
         const conn = dbClient.getConnection();
         try {
-            return await conn.collection('dishes').find({dish_id : { $eq: dishId}}).toArray();
+            return await conn.collection('dishes').findOne({dish_id : { $eq: dishId}});
         } catch (error) {
             console.log("Erreur pour récupérer le plat: " + error.message);
         }

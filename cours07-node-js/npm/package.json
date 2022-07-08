@@ -1,7 +1,7 @@
 {
   "author": "Marcos Assuncao",
   "name": "cours07-nodejs",
-  "description": "Exemple fichier package.json",
+  "description": "Exemple de fichier package.json",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

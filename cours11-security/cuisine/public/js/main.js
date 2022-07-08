@@ -1,5 +1,5 @@
 // Quelques variables globales
-const apiUrl = "/v2";
+const apiUrl = "/v3";
 
 function checkResponse(response) {
     if (!response.ok)
@@ -8,7 +8,16 @@ function checkResponse(response) {
 }
 
 async function fetchURL(url) {
-    const response = await fetch(url).then(checkResponse);
+    const fetchOptions = {
+        mode: "cors",
+        headers: {
+            'Authorization' : 'Bearer ' + sessionStorage.getItem("apiKey"),
+            'Content-Type': "application/json",
+            'Accept': "application/json"
+        }
+    };
+
+    const response = await fetch(url, fetchOptions).then(checkResponse);
     return await response.json();
 }
 
@@ -93,27 +102,21 @@ async function showRecipe(dishId) {
             const dish = json.data;
             dishName.innerText = dish.name;
             dishPhoto.src = dish.photo;
-        });
 
-    fetchURL(`${apiUrl}/dishes/${dishId}/ingredients`)
-        .then(json => {
-            const list = document.getElementById("ingredient_list");
-            list.innerText = "";
-            json.data.forEach(ingredient => {
+            const ingredients = document.getElementById("ingredient_list");
+            ingredients.innerText = "";
+            dish.ingredients.forEach(ingredient => {
                 const li = document.createElement("li");
                 li.innerText = `${ingredient.quantity} ${ingredient.unit} de ${ingredient.name}`;
-                list.append(li);
+                ingredients.append(li);
             });
-        });
 
-    fetchURL(`${apiUrl}/dishes/${dishId}/directions`)
-        .then(json => {
-            const list = document.getElementById("directions");
-            list.innerText = "";
-            json.data.forEach(ingredient => {
+            const directions = document.getElementById("directions");
+            directions.innerText = "";
+            dish.directions.forEach(ingredient => {
                 const li = document.createElement("li");
                 li.innerText = ingredient.description;
-                list.append(li);
+                directions.append(li);
             });
         });
 

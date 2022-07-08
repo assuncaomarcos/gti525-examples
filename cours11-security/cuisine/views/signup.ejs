@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>S'inscrire</title>
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/cuisine.css">
+    <script src="/js/materialize.js"></script>
+    <script src="/js/login.js"></script>
+    <link rel="icon" href="favicon.ico?v=1.1">
+</head>
+<body>
+<div class="prompt_box">
+    <h3 class="center-align">S'inscrire</h3>
+    <div class="row">
+        <form id="user_form" action="/signup" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="firstname" name="firstname" type="text" class="validate">
+                    <label for="firstname">Prénom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="lastname" name="lastname" type="text" class="validate">
+                    <label for="lastname">Nom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate">
+                    <label for="email">Adresse courriel</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate">
+                    <label for="password">Mot de passe</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="center-align row">
+        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a></p>
+    </div>
+</div>
+<div class="container">
+    <div class="row center-align">
+        <p>Créé par <a href="https://www.marcosassuncao.com">Marcos Assuncao</a></p>
+        <p>Dans le cadre du cours <a href="https://www.etsmtl.ca/etudes/cours/GTI525">GTI525</a></p>
+        <p>Authentification possible par <a href="https://www.passportjs.org">Passport</a></p>
+    </div>
+</div>
+</body>
+</html>

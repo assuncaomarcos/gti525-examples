@@ -27,7 +27,7 @@ class DishController {
         const dishId = Number(req.params.id);
         try {
             const result = await model.dishById(dishId);
-            if (result.length > 0) {
+            if (result) {
                 res.json(new Response(200, "ok", result));
             } else {
                 res.status(404).json(new Response(404, "Plat introuvable."));
@@ -68,6 +68,11 @@ class DishController {
         }
     }
 
+    /*
+       Les méthodes ci-dessous ne sont pas vraiment nécessaires vu que dans cette version les
+       méthodes ci-dessus suffisent pour récuperer les informations d’un plat ou pour le mettre à jour.
+       Ils sont implémentées là à titre d'exemple
+    */
     async ingredients(req, res) {
         const dishId = Number(req.params.id);
         try {

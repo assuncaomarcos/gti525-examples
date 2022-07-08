@@ -12,5 +12,6 @@ class DBConnection {
     static getConnection() {
         return DBConnection.connection;
     }
-};
+}
+
 module.exports = DBConnection;
