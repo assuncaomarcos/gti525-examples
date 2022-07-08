@@ -3,6 +3,8 @@ const authController = require("../controllers/auth");
 const passport = require("passport");
 const Format = require("response-format");
 const routes = express.Router();
+const csrf = require("csurf");
+const csrfProtection = csrf();
 
 routes.get("/", (req, res) => {
    // S'il n'y a pas req.user configuré par passport, l'utilisateur n'est pas authentifié
@@ -12,17 +14,19 @@ routes.get("/", (req, res) => {
     res.redirect("login");
 });
 
-routes.get("/signup", (req, res) => {
+routes.get("/signup", csrfProtection, (req, res) => {
+    res.locals.csrfToken = req.csrfToken();
     res.render("signup");
 });
 
-routes.post("/signup", authController.signup);
+routes.post("/signup", csrfProtection, authController.signup);
 
-routes.get("/login", (req, res) => {
+routes.get("/login", csrfProtection, (req, res) => {
+    res.locals.csrfToken = req.csrfToken();
     res.render("login");
 });
 
-routes.post("/login", passport.authenticate('password',
+routes.post("/login", csrfProtection, passport.authenticate('password',
     {
         failureMessage: "Nom d'utilisateur ou mot de passe invalide",
     }),
