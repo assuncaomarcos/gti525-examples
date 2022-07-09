@@ -5,18 +5,21 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const Users = require("../models/users");
 const jwt = require("jsonwebtoken");
 
+// Nécessaire pour sérialiser un utilisateur dans la session
 passport.serializeUser(function(user, done) {
     process.nextTick(function() {
         done(null, {id: user._id, firstname: user.firstname});
     });
 });
 
+// Nécessaire pour desérialiser un utilisateur
 passport.deserializeUser(function(user, done) {
     process.nextTick(function() {
         return done(null, user);
     });
 });
 
+// Stratégie d’authentification par nom d’utilisateur et mot de passe
 passport.use(
     'password',
     new LocalStrategy(
@@ -36,7 +39,7 @@ passport.use(
                 return done(null, false, { message: 'Mauvais mot de passe' });
             }
 
-            // Création du jeton JWT d'authentification pour l'API
+            // Création du jeton JWT d'authentification pour l'API REST
             user.token = jwt.sign(
                 {
                     id: user._id,
@@ -53,6 +56,7 @@ passport.use(
     })
 );
 
+// Stratégie d’authentification par jeton Web JSON
 passport.use(
     'jwt',
     new JwtStrategy(

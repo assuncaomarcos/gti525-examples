@@ -4,7 +4,7 @@
   "description": "",
   "main": "cuisine_app.js",
   "scripts": {
-    "start": "nodemon cuisine_app.js",
+    "start": "node cuisine_app.js",
     "dev": "NODE_ENV=development nodemon cuisine_app.js"
   },
   "keywords": [],

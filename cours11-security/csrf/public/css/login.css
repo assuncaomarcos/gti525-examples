@@ -1,0 +1,7 @@
+.prompt_box {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 2px solid #e6e6e6;
+    border-radius: 10px;
+}

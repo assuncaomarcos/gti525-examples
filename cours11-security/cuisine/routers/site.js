@@ -4,6 +4,7 @@ const passport = require("passport");
 const Format = require("response-format");
 const routes = express.Router();
 const csrf = require("csurf");
+
 const csrfProtection = csrf();
 
 routes.get("/", (req, res) => {
@@ -68,5 +69,14 @@ routes.get('/logout', function(req, res, next) {
         });
     });
 });
+
+// Pour fournir un message customisé dans le cas d'un jeton CSRF invalide
+async function invalidCSRFToken (err, req, res, next) {
+    if (err.code !== 'EBADCSRFTOKEN') return next(err)
+
+    res.status(403).json(Format.badRequest("Jeton CSRF invalide"));
+}
+
+routes.use(invalidCSRFToken);
 
 module.exports = routes;

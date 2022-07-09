@@ -5,9 +5,11 @@ const Format = require("response-format");
 const router = express.Router();
 const apiVersion = process.env.CUISINE_API_VERSION || 'v3';
 
+// On va définir une fonction qui ferra l'authentification
+// parce que'on veut fournir une réponse customisée
 async function doJwtAuth(req, res, next) {
     return passport.authenticate("jwt", {
-        session: false
+        session: false // On ne veut pas utiliser des sessions pour l'API REST
     }, (err, user, info) => {
         if (err) {
             return res.status(505).json(Format.internalError(err.message));

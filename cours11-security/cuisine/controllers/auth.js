@@ -1,5 +1,5 @@
 const Format = require("response-format");
-const Auth = require("../models/users");
+const Users = require("../models/users");
 
 async function signup(req, res) {
     try {
@@ -11,14 +11,14 @@ async function signup(req, res) {
         }
 
         // Vérifier si l'utilisateur existe dans la base de données
-        const oldUser = await Auth.findOne({email: email});
+        const oldUser = await Users.findOne({email: email});
 
         if (oldUser) {
             return res.status(404).json(Format.badRequest("Utilisateur existant. Veuillez vous connecter."));
         }
 
         // Créer l'utilisateur dans la base de données
-        const user = await Auth.create({
+        const user = await Users.create({
             firstname,
             lastname,
             email: email.toLowerCase(),
