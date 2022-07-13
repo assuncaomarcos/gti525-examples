@@ -1,9 +1,13 @@
-const dotenv = require("dotenv");
-const result = dotenv.config()
+const mariaDB = true;
 
-if (result.error) {
-    console.error("Erreur de lecture du fichier .env", result.error);
-    process.exit(-1);
+if (mariaDB) {
+    const dotenv = require("dotenv");
+    const result = dotenv.config()
+
+    if (result.error) {
+        console.error("Erreur de lecture du fichier .env", result.error);
+        process.exit(-1);
+    }
 }
 
 class MariaDBDriver {
@@ -50,5 +54,4 @@ class SQLite3Driver {
     }
 }
 
-// module.exports = new MariaDBDriver();
-module.exports = new SQLite3Driver();
+module.exports = mariaDB ? new MariaDBDriver() : new SQLite3Driver();
