@@ -26,7 +26,7 @@ app.use(express.static('pages'));
     if (isDev) {
         const mongoServer = require("./db/memory");
         await mongoServer.start();
-        await mongoServer.loadSampleDB('collections/recipes.json');
+        await mongoServer.loadSampleDB('collection/recipes.json');
         process.on('exit', async() => {await mongoServer.stop()});
     }
 
