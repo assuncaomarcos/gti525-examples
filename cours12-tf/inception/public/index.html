@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de comment utiliser le modèle Inception v3 sur le navigateur</title>
+    <style>
+        .invisible {
+            opacity: 0.2;
+        }
+
+        .classifyOnClick {
+            z-index: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+    <script src="js/labels.js"></script>
+</head>
+<body>
+<h2>Mode d'emploi</h2>
+<p class="flow-text">Attendez le chargement du modèle. Une fois le modèle chargé, les images ci-dessous seront visibles
+    et
+    vous pourrez cliquer dessus pour que le modèle puisse déterminer leur contenu.</p>
+
+<section id="photos" class="invisible">
+    <div class="row">
+        <div class="classifyOnClick col s4">
+            <img src="images/school_van_med.jpg" width="500px" crossorigin="anonymous" title="Cliquez pour classer!"/>
+        </div>
+
+        <div class="classifyOnClick col s4">
+            <img src="images/bridge_med.jpg" width="500px" crossorigin="anonymous" title="Cliquez pour classer!"/>
+        </div>
+
+        <div class="classifyOnClick col s4">
+            <img src="images/motorbike_med.jpg" width="500px" crossorigin="anonymous" title="Cliquez pour classer!"/>
+        </div>
+    </div>
+
+    <p class="flow-text"><strong>Résultat:</strong></p>
+    <p id="inception_response" class="flow-text"></p>
+</section>
+
+<script>
+    /**
+     * L'exemple ci-dessous est basé sur l’exemple du Chapitre 5 du livre
+     * Learning TensorFlow.js: Powerful Machine Learning in Javascript
+     */
+
+    var modelHasLoaded = false;
+    var model = undefined;
+    const photoSection = document.getElementById('photos');
+
+    tf.ready().then(() => {
+        const modelPath = 'https://tfhub.dev/google/tfjs-model/imagenet/inception_v3/classification/3/default/1';
+        tf.loadGraphModel(modelPath, {fromTFHub: true})
+            .then(loadedModel => {
+                model = loadedModel;
+                modelHasLoaded = true;
+                // Afficher la section demo si le model est prêt
+                photoSection.classList.remove('invisible');
+            });
+    });
+
+    // Les images sont dans des divs qui contiennent la classe CSS classifyOnClick
+    const imageContainers = document.getElementsByClassName('classifyOnClick');
+
+    // Parcourir les images et ajouter le gestionnaire d'événement
+    for (let i = 0; i < imageContainers.length; i++) {
+        imageContainers[i].children[0].addEventListener('click', handleClick);
+    }
+
+    // Lorsque l'utilisateur clique sur une image, on la classifie
+    // et on affiche les résultats
+    function handleClick(event) {
+        if (!modelHasLoaded) {
+            return;
+        }
+
+        tf.tidy(() => {
+            const myTensor = tf.browser.fromPixels(event.target);
+            // Inception v3 attend une image de taille 299x299
+            const readyfied = tf.image
+                .resizeBilinear(myTensor, [299, 299], true)
+                .div(255).reshape([1, 299, 299, 3]);
+
+            const result = model.predict(readyfied);
+
+            const {values, indices} = tf.topk(result, 3);
+
+            // On ne considère que les trois premiers résultats
+            const winners = indices.dataSync();
+
+            const p = document.getElementById("inception_response");
+            p.innerText = `Première place: ${LABELS[winners[0]]},
+                Second place: ${LABELS[winners[1]]},
+                Troisième place: ${LABELS[winners[2]]}`;
+        });
+    }
+</script>
+</body>
+</html>
