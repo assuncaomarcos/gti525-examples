@@ -27,14 +27,14 @@ routes.get("/login", csrfProtection, (req, res) => {
     res.render("login");
 });
 
-routes.post("/login", csrfProtection, passport.authenticate('password',
-    {
-        failureMessage: "Nom d'utilisateur ou mot de passe invalide",
-    }),
-    authController.login);
+// routes.post("/login", csrfProtection, passport.authenticate('password',
+//     {
+//         failureMessage: "Nom d'utilisateur ou mot de passe invalide",
+//     }),
+//     authController.login);
 
 // Si on veut fournir un JSON avec une réponse customisée
-// routes.post("/login", doPasswordAuth, authController.login);
+routes.post("/login", doPasswordAuth, authController.login);
 
 async function doPasswordAuth(req, res, next) {
     passport.authenticate(

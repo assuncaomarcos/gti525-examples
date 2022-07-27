@@ -45,6 +45,19 @@ async function handleSubmit(event) {
                 sessionStorage.setItem("apiKey", response.data.token);
             }
             window.location.href = "/";
+        } else {
+            const errorDiv = document.getElementById("error");
+            errorDiv.classList.remove("hide");
+            while (errorDiv.hasChildNodes()) {
+                errorDiv.removeChild(errorDiv.firstChild);
+            }
+            const p = document.createElement("p");
+            p.innerText = response.message;
+            errorDiv.appendChild(p);
+            // affiche le message pour 4 seconds
+            setTimeout(() => {
+                errorDiv.classList.add("hide");
+            }, 3000);
         }
     } catch (error) {
         console.error(error);

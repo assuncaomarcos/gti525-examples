@@ -41,7 +41,10 @@ function configSessionManager() {
     app.use(session({
         secret: process.env.SESSION_SECRET,
         saveUninitialized: false,
-        cookie: {maxAge: oneDay},
+        cookie: {
+            maxAge: oneDay,
+            sameSite: 'strict'
+        },
         resave: false,
         store: MongoStore.create({
             client: db.getClient(),
