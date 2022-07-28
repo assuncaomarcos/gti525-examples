@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un nouvel utilisateur</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/users.js"></script>
+</head>
+<body>
+<div class="container">
+    <section id="users_section">
+        <div class="row valign-wrapper">
+            <div class="col s6"><h3>Utilisateurs disponibles</h3></div>
+            <div class="right-align col s6">
+                <a id="add_btn" class="waves-effect waves-light btn-small"><i class="material-icons left">add</i>Ajouter</a>
+                <a id="refresh_btn" class="waves-effect waves-light btn-small"><i class="material-icons left">refresh</i>Rafraichir</a>
+            </div>
+        </div>
+        <table class="striped">
+        <thead>
+        <tr>
+            <th>Nom, Prénom</th>
+            <th>Adresse</th>
+            <th>Téléphone</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+    </section>
+
+    <section id="edit_section" class="hide">
+    <h4>Ajout/modification d'un utilisateur</h4>
+    <form action="" method="get" class="form-user" id="form-user">
+        <div class="row">
+            <div class="input-field col s4">
+                <label for="lastname">Nom: </label>
+                <input type="text" name="lastname" id="lastname" required>
+            </div>
+            <div class="input-field col s3">
+                <label for="firstname">Prénom: </label>
+                <input type="text" name="firstname" id="firstname" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s7">
+                <label for="address">Adresse: </label>
+                <input type="text" name="address" id="address" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <label for="city">Ville: </label>
+                <input type="text" name="city" id="city" required>
+            </div>
+
+            <div class="input-field col s3">
+                <select id="province" name="province" required>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">Colombie-Britannique</option>
+                    <option value="Prince Edward Island">Île-du-Prince-Édouard</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">Nouveau-Brunswick</option>
+                    <option value="Nova Scotia">Nouvelle-Écosse</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Quebec">Québec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Newfoundland">Terre-Neuve-et-Labrador</option>
+                    <option value="Northwest Territories">Territoires du Nord-Ouest</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <label for="phone">Téléphone: </label>
+                <input type="text" name="phone" id="phone" placeholder="Téléphone" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input type="submit" value="Soumettre" class="btn">
+            </div>
+        </div>
+        <input type="hidden" name="id" id="id" value="-1">
+    </form>
+    </section>
+
+    <section id="message_section" class="hide">
+        <div id="api_message" class="#ffe0b2 orange lighten-4 center-align"><p>Message</p></div>
+    </section>
+</div>
+</body>
+</html>
