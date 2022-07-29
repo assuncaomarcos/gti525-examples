@@ -4,7 +4,7 @@ const { Transform } = require('stream');
 
 const hostname = 'localhost';
 const port = process.env.NODE_PORT || 3000;
-const dataset = 'video_game_films.csv';
+const dataset = 'data/video_game_films.csv';
 
 class ToJson extends Transform {
     constructor() {

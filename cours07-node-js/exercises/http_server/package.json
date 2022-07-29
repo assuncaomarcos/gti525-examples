@@ -2,10 +2,10 @@
   "name": "http_server",
   "version": "1.0.0",
   "description": "",
-  "main": "movie_server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node movie_server.js",
-    "dev": "nodemon movie_server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Marcos Dias de Assuncao",
