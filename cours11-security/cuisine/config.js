@@ -9,8 +9,11 @@ const envVariables = dotenv.parse(Buffer.from(`
 NODE_PORT=3000
 MONGODB_DB=cuisine
 CUISINE_API_VERSION=v3
-JWT_KEY=gti525-e2022-jwt-key
-SESSION_SECRET=gti525-e2022-session-key
+JWT_KEY=gti525-jwt-key
+SESSION_SECRET=gti525-session-key
+CSRF_SECRET=gti525-super-csrf-key
+COOKIES_SECRET=gti525-super-key
+CSRF_COOKIE_NAME=x-csrf-token
 `));
 
 function checkIfDefined(variables) {

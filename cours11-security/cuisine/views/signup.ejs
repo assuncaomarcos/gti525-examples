@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>S'inscrire</title>
-    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/css/cuisine.css">
-    <script src="/js/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/login.js"></script>
     <link rel="icon" href="favicon.ico?v=1.1">
 </head>
@@ -41,7 +41,7 @@
             <div class="row center-align">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Soumettre</button>
             </div>
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
         </form>
     </div>
     <div class="center-align row">

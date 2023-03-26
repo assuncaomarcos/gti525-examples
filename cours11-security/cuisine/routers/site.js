@@ -1,11 +1,36 @@
 const express = require('express');
+const { doubleCsrf } = require("csrf-csrf");
 const authController = require("../controllers/auth");
 const passport = require("passport");
 const Format = require("response-format");
 const routes = express.Router();
-const csrf = require("csurf");
 
-const csrfProtection = csrf();
+// Le cookie CSRF aura une durée d'un jour
+const oneDay = 1000 * 60 * 60 * 24;
+
+// Ces paramètres sont destinés au développement.
+// Assurez-vous d'utiliser cors et helmet en production.
+const {
+    invalidCsrfTokenError,
+    generateToken,
+    doubleCsrfProtection } =
+    doubleCsrf({
+        getSecret: (req) => req.secret,
+        secret: process.env.CSRF_SECRET,
+        cookieName: process.env.CSRF_COOKIE_NAME,
+        cookieOptions: { maxAge: oneDay, sameSite: "Strict", secure: true, signed: true },
+        size: 64,
+        ignoredMethods: ["GET", "HEAD", "OPTIONS"]
+    });
+
+// Traitement des erreurs, interception des erreurs de validation
+const csrfErrorHandler = (error, req, res, next) => {
+    if (error == invalidCsrfTokenError) {
+        res.status(403).json(Format.unAuthorized("Erreur de validation CSRF"));
+    } else {
+        next();
+    }
+};
 
 routes.get("/", (req, res) => {
    // S'il n'y a pas req.user configuré par passport, l'utilisateur n'est pas authentifié
@@ -15,15 +40,15 @@ routes.get("/", (req, res) => {
     res.redirect("login");
 });
 
-routes.get("/signup", csrfProtection, (req, res) => {
-    res.locals.csrfToken = req.csrfToken();
+routes.get("/signup", (req, res) => {
+    res.locals.csrfToken = generateToken(res, req);
     res.render("signup");
 });
 
-routes.post("/signup", csrfProtection, authController.signup);
+routes.post("/signup", doubleCsrfProtection, csrfErrorHandler, authController.signup);
 
-routes.get("/login", csrfProtection, (req, res) => {
-    res.locals.csrfToken = req.csrfToken();
+routes.get("/login",  (req, res) => {
+    res.locals.csrfToken = generateToken(res, req);
     res.render("login");
 });
 
@@ -34,7 +59,7 @@ routes.get("/login", csrfProtection, (req, res) => {
 //     authController.login);
 
 // Si on veut fournir un JSON avec une réponse customisée
-routes.post("/login", doPasswordAuth, authController.login);
+routes.post("/login", doubleCsrfProtection, csrfErrorHandler, doPasswordAuth, authController.login);
 
 async function doPasswordAuth(req, res, next) {
     passport.authenticate(
@@ -69,14 +94,5 @@ routes.get('/logout', function(req, res, next) {
         });
     });
 });
-
-// Pour fournir un message customisé dans le cas d'un jeton CSRF invalide
-async function invalidCSRFToken (err, req, res, next) {
-    if (err.code !== 'EBADCSRFTOKEN') return next(err)
-
-    res.status(403).json(Format.badRequest("Jeton CSRF invalide"));
-}
-
-routes.use(invalidCSRFToken);
 
 module.exports = routes;

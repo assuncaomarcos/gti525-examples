@@ -3,8 +3,9 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./db/client");
 const cuisineRouter = require("./routers/api");
-const webRouter = require("./routers/site");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const webRouter = require("./routers/site");
 const path = require("path");
 const MongoStore = require("connect-mongo");
 const passport = require("./middleware/passport");
@@ -43,7 +44,7 @@ function configSessionManager() {
         saveUninitialized: false,
         cookie: {
             maxAge: oneDay,
-            sameSite: 'strict'
+            sameSite: 'Strict'
         },
         resave: false,
         store: MongoStore.create({
@@ -72,6 +73,7 @@ function configPassport() {
         console.log("Erreur lors du démarrage du serveur: " + error.message);
         process.exit(-1);
     }
+    app.use(cookieParser(process.env.COOKIES_SECRET));
     app.use(webRouter);
     app.listen(process.env.NODE_PORT, () => console.log(`Le serveur est démarré`));
 })();

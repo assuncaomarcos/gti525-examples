@@ -24,7 +24,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Le cookie de la session aura une durée d'un jour
+// Le cookie CSRF aura une durée d'un jour
 const oneDay = 1000 * 60 * 60 * 24;
 
 // Ces paramètres sont destinés au développement.
@@ -44,7 +44,7 @@ const {
 
 app.use(cookieParser(process.env.COOKIES_SECRET));
 
-// Error handling, validation error interception
+// Traitement des erreurs, interception des erreurs de validation
 const csrfErrorHandler = (error, req, res, next) => {
     if (error == invalidCsrfTokenError) {
         res.status(403).json(Format.unAuthorized("Erreur de validation CSRF"));

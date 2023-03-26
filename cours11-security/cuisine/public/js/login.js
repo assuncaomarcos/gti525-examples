@@ -9,13 +9,16 @@
 async function postAsJSON(url, formData) {
     const plainFormData = Object.fromEntries(formData.entries());
     const jsonString = JSON.stringify(plainFormData);
+    // de la dette technique ici. Ajoute la valeur du champs de formulaire dans l’en-tête de la requête
+    const csrfToken = document.getElementById("_csrf").value;
 
     const fetchOptions = {
         method: "POST",
         mode: "cors",
         headers: {
             'Content-Type': "application/json",
-            'Accept': "application/json"
+            'Accept': "application/json",
+            "x-csrf-token": csrfToken,
         },
         body: jsonString,
     };
