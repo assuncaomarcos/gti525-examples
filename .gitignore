@@ -4,6 +4,9 @@ alice_in_wonderland.txt
 # IDEA
 .idea
 
+# Containers' data
+data/*
+
 # Logs
 logs
 *.log

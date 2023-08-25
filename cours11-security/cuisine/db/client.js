@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set("strictQuery", false);
 
 class DBConnection {
     static connected = false;
