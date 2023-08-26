@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 <div class="container left">
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <input id="first_name" type="text" class="validate">
                     <label for="first_name">Prénom</label>
                 </div>
                 <div class="input-field col s6">
@@ -31,6 +29,9 @@
                     <input id="email" type="email" class="validate">
                     <label for="email">Courriel</label>
                 </div>
+            </div>
+            <div class="row">
+                <button type="submit"  name="action" class="btn">Soumettre</button>
             </div>
         </form>
 </div>
