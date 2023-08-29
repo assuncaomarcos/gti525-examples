@@ -1,10 +1,28 @@
-console.log(":: arrays ::");
+console.log("-------------- arrays --------------");
 
+let emptyArray = [];
 let numbers = [1, 2, 3, 5, 7, 10];
+let mixed = [1.1, true, "poires"];
+let sizeFiveArray = Array(5);
+let anotherArray = Array(1, 2, 3);
+let yetAnotherArray = Array.of(1, 2, 3, 4);
 
 console.log(numbers[2]);  // 3
 console.log(numbers[0]);  // 1
+console.log(mixed);       // 1.1,true,poires
+console.log(emptyArray.length);             // 0
 console.log(numbers[numbers.length - 1]);   // 10
+console.log(sizeFiveArray.length);          // 5
+console.log(anotherArray);                  // 1, 2, 3
+console.log(yetAnotherArray);               // 1, 2, 3, 4
+
+let anArray = [1, 2, 3];
+let largerArray = [0, ...anArray, 4, 5];
+console.log(largerArray);                   // 0,1,2,3,4,5
+
+let sentence = [..."The secret code they created made no sense"];
+// T,h,e, ,s,e,c,r,e,t, ,c,o,d,e, ,t,h,e,y, ,c,r,e,a,t,e,d, ,m,a,d,e, ,n,o, ,s,e,n,s,e
+console.log(sentence);
 
 // ---------
 
@@ -32,6 +50,10 @@ for (let i = 0; i < grades.length; i++) {
 for (let grade of grades) {
     console.log(grade);
 }
+
+grades.forEach(grade => {
+    console.log("Grade: " + grade);
+});
 
 // ---------
 

@@ -1,74 +1,55 @@
-console.log(":: conditions ::");
+console.log("-------------- structures conditionnelles --------------");
 
-let x = 5;
-console.log("x == 5 : " + (x == 5));
-console.log("x != 4 : " + (x != 4));
-console.log("x > 5 : " + (x > 5));
-console.log("x >= 5 : " + (x >= 5));
-console.log("x < 5 : " + (x < 5));
-console.log("x <= 5 : " + (x <= 5));
+let condition = true;
 
-console.log("x == 5 : " + (x === 5));
-console.log("x === \"5\" : " + (x === "5"));
-console.log("x !== 5 : " + (x !== 5));
-console.log("x !== \"5\" : " + (x !== "5"));
+if (condition) {
+    console.log("Instructions à exécuter si la condition est vraie");
+} else {
+    console.log("Instructions à exécuter si la condition est fausse");
+}
 
-let foo = "ETS";
-console.log("foo == \"ETS\" : " + (foo == "ETS"));
-console.log("foo === \"ETS\" : " + (foo === "ETS"));
-console.log("foo != \"Poly\" : " + (foo != "Poly"));
-console.log("foo !== \"42\" : " + (foo !== "42"));
-
-console.log(" -------- ");
-
-// --------
+if (condition)
+    console.log("Cette ligne s'exécute si la condition est vraie");
+console.log("Cette ligne va toujours s'exécuter");
 
 // Retourne vrai si value >= min et value <= max
 function isBetween(value, min, max) {
     return ( (value >= min) && (value <= max) );
 }
 
-function isBetween2(value, min, max) {
+function isBetweenShort(value, min, max) {
     return (max >= value >= min);
 }
 
-console.log("Between: " + isBetween2(2,10, 15))
-
-console.log( isBetween( 10, 5, 15) ); // true
-console.log( isBetween( 10, 5, 8 ) ); // false
-
-console.log(" -------- ");
-
-// --------
-
-let condition = false;
-if (condition)
-	console.log("Cette ligne s'exécute si la condition est vraie");
-	console.log("Cette ligne va toujours s'exécuter");
-
-console.log(" -------- ");
-
-// --------
-
+// La structure suivante
 if ( isBetween(15, 10, 20) ) {
-	console.log("Nombre dans la plage!");
+    console.log("Nombre dans la plage!");
 } else {
-	console.log("Nombre hors plage!");
+    console.log("Nombre hors plage!");
 }
 
-console.log(" -------- ");
-
-// Équivalent à -->
-
+// est equivalent à
 if ( (15 >= 10) && (15 <= 20) ) {
-	console.log("Nombre dans la plage!");
+    console.log("Nombre dans la plage!");
 } else {
-	console.log("Nombre hors plage!");
+    console.log("Nombre hors plage!");
 }
 
-console.log(" -------- ");
+// Les énoncés if peuvent être imbriqués
+if ( isBetween(15, 10, 20) ) {
+    if ( isBetween(15, 14, 16) ) {
+        console.log("Excellent!");
+    } else {
+        console.log("Bien.");
+    }
+} else {
+    console.log("Mauvais!");
+}
 
-// --------
+console.log("2 entre 10 et 15: " + isBetweenShort(2,10, 15))
+console.log("10 entre 5 et 15: " + isBetween( 10, 5, 15) ); // true
+console.log("10 entre 5 et 8: " + isBetween( 10, 5, 8 ) ); // false
+
 
 if ( isBetween(15, 10, 20) ) {
     if ( isBetween(15, 14, 16) ) {	
@@ -80,10 +61,7 @@ if ( isBetween(15, 10, 20) ) {
     console.log("Mauvais!");
 }
 
-console.log(" -------- ");
-
-// --------
-
+console.log(" --- Structures if elseif else ---");
 let score = 75;
 let grade;
 
@@ -98,10 +76,9 @@ if ( score >= 80 ) {
 } else {
     grade = "F";
 }
-
 console.log("Votre résultat est " + grade);
 
-// ------ Exemples de switch ----------
+console.log(" --- Exemples de switch/case ---");
 
 let expr = "Oranges";
 switch (expr) {

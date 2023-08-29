@@ -1,4 +1,4 @@
-console.log(":: arithmetic ::");
+console.log("-------------- arithmetic --------------");
 
 let foo = 5;
 foo = foo + 1 - 2 * (4 - 1);

@@ -1,4 +1,4 @@
-console.log(":: strings ::");
+console.log("-------------- strings --------------");
 
 console.log("telephone".slice(0, 4));       // tele
 console.log("telephone".indexOf("e"));      // 1
@@ -7,8 +7,8 @@ console.log("telephone".lastIndexOf("e"));  // 8
 
 // ----------
 
-let sentence = `Apprendre n'est pas savoir ; il y a les sachant et les savants : 
-c'est la mémoire qui fait les uns, c'est le philosophie qui fait les autres.`;
+let sentence = `La lecture de tous les bons livres est comme une 
+conversation avec les plus honnêtes gens des siècles passés.`;
 
 let words = sentence.split(" ");
 console.log(words);

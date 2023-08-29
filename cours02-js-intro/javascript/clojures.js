@@ -1,4 +1,20 @@
-console.log(":: clojures ::");
+console.log("-------------- clojures --------------");
+
+function compteur() {
+    let compte = 0;
+
+    function increment() {
+        compte++;
+        console.log(compte);
+    }
+
+    return increment;
+}
+
+let incrementer = compteur();
+incrementer(); // Affiche 1
+incrementer(); // Affiche 2
+
 
 function wrapValue(n) {
     let local = n;
