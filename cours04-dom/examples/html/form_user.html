@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de formulaire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const elems = document.querySelectorAll('.autocomplete');
+            M.Autocomplete.init(elems, {});
+        });
+    </script>
+
+</head>
+<body>
+<form action="" method="post" id="login">
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required
+           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+           placeholder="Entrez votre email"
+           class="validate" />
+
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required
+           pattern=".{6,}" title="Le mot de passe doit contenir au moins 6 caractères"
+           placeholder="Entrez votre mot de passe"
+           class="validate" />
+
+    <button class="btn" type="submit">Envoyer</button>
+</form>
+</body>
+</html>

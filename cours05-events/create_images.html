@@ -41,8 +41,7 @@
             let keys = Object.keys(object);
             let img = document.createElement("img");
             keys.forEach( (key) => {
-                let value = (key == "src") ? wiki + object[key] : object[key]
-                img[key] = value;
+                img[key] = (key == "src") ? wiki + object[key] : object[key];
             });
             div.appendChild(img);
         });

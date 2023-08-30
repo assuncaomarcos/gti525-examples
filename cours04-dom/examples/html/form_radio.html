@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de formulaire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const elems = document.querySelectorAll('.autocomplete');
+            M.Autocomplete.init(elems, {});
+        });
+    </script>
+
+</head>
+<body>
+<form action="" method="post" id="login">
+    <p>
+        <label>
+            <input type="checkbox" id="newsletter" name="newsletter"/>
+            <span>Inscrivez-vous à notre newsletter</span>
+        </label>
+    </p>
+
+    <p>Sexe :</p>
+    <p>
+        <label>
+            <input type="radio" name="sexe" value="homme"/>
+            <span>Homme</span>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="radio" name="sexe" value="femme"/>
+            <span>Femme</span>
+        </label>
+    </p>
+
+    <p>
+        <label>
+            <input type="radio" name="sexe" value="autre"/>
+            <span>Autre</span>
+        </label>
+    </p>
+
+    <button class="btn" type="submit">Envoyer</button>
+</form>
+</body>
+</html>
