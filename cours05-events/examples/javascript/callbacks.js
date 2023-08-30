@@ -1,4 +1,4 @@
-console.log(" :: callbacks :: ");
+console.log("-------------- callbacks --------------");
 
 setTimeout(() => console.log("Trois secondes ecoulées..."), 3000);
 
