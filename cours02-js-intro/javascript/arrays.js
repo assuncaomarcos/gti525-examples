@@ -66,3 +66,19 @@ grades = [70, 80, 85, 87, 90, 80];
 
 console.log(grades.slice(2, 5));  // [85,87,90]
 console.log(grades.slice(3));     // [87,90,80]
+
+// ---------
+
+// opérateur rest ...
+function max(...values) {
+    let maxvalue = -Infinity;
+    for (let value of values) {
+        if (value > maxvalue) maxvalue = value;
+    }
+    return maxvalue;
+}
+
+console.log(max(40, 50, 55, 88, 32, 99));
+
+let newGrades = [50, 60, 70, 55, 85];
+console.log(max(...newGrades));          // opérateur spread ...
