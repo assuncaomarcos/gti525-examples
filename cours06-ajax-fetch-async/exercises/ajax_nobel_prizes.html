@@ -5,10 +5,17 @@
     <title>Lauréats du prix Nobel par catégorie</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="common.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // MaterializeCSS a besoin d'ínitialiser certains eléments tels que les select
+            let elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+        });
+    </script>
 </head>
 
 <body>
+
 <div class="container">
     <h4>Lauréats du prix Nobel par catégorie</h4>
 
@@ -84,12 +91,6 @@
         return table;
     }
 
-    function checkResponse(response) {
-        if (!response.ok)
-            throw Error(`${response.status} - ${response.statusText}`);
-        return response;
-    }
-
     const categoryChange = (ev) => {
         const category = ev.target.value;
         const divContent = document.getElementById("content");
@@ -98,14 +99,14 @@
             divContent.innerHTML = '';
             const url = `${API_URL}&nobelPrizeCategory=${category}`;
 
-            fetch(url)
-                .then(checkResponse)
-                .then(response => response.json())
-                .then(data => {
+            fetchData(url, (err, data) => {
+                if (err) {
+                    divContent.innerHTML = JSON.stringify(err.message);
+                } else {
                     let table = buildTable(data.nobelPrizes[0].laureates, FIELDS);
-                    document.getElementById("content").appendChild(table);
-                })
-                .catch(error => document.getElementById("content").innerHTML = error.message);
+                    divContent.appendChild(table);
+                }
+            });
         }
     }
 
