@@ -1,0 +1,11 @@
+{
+  "name": "http",
+  "version": "1.0.0",
+  "description": "Exemples d'utilisation du module http",
+  "scripts": {
+    "get": "node http_get.js",
+    "server": "node http_server.js"
+  },
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT"
+}

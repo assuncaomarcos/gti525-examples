@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "Marcos Dias de Assuncao",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "nodemon": "^2.0.15"
   }
 }

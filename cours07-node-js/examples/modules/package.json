@@ -1,0 +1,11 @@
+{
+  "name": "modules",
+  "version": "1.0.0",
+  "description": "Exemples de modules CommonJS/ECMAScript",
+  "scripts": {
+    "common": "node index.js",
+    "ecma": "node index.mjs"
+  },
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT"
+}

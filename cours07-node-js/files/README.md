@@ -1,2 +1,0 @@
-To test the examples, you first need to download 
-the book by executing download_alice.js

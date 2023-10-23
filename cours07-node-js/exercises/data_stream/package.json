@@ -2,14 +2,14 @@
   "name": "string_finder",
   "version": "1.0.0",
   "description": "",
-  "main": "string_finder.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node string_finder.js",
-    "dev": "nodemon string_finder.js"
+    "start": "node book.js && node index.js",
+    "dev": "node book.js && nodemon index.js"
   },
   "keywords": [],
   "author": "Marcos Dias de Assuncao",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "nodemon": "^2.0.15"
   }

@@ -1,6 +1,6 @@
-const http = require('http');
-const fs = require('fs');
-const { Transform } = require('stream');
+const http = require('node:http');
+const fs = require('node:fs');
+const { Transform } = require('node:stream');
 
 const hostname = 'localhost';
 const port = process.env.NODE_PORT || 3000;

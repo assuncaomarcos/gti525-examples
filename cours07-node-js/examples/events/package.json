@@ -1,0 +1,10 @@
+{
+  "name": "events",
+  "version": "1.0.0",
+  "description": "Exemples de l'approche évènementielle de Node.js",
+  "author": "Marcos Dias de Assuncao",
+  "scripts": {
+    "events": "node events.js"
+  },
+  "license": "MIT"
+}

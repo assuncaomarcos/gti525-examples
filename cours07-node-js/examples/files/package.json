@@ -1,0 +1,12 @@
+{
+  "name": "files",
+  "version": "1.0.0",
+  "description": "Exemples de manipulation de fichiers",
+  "main": "index.js",
+  "scripts": {
+    "download": "node book.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT"
+}
