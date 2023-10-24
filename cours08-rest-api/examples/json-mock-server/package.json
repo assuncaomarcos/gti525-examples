@@ -1,0 +1,21 @@
+{
+  "name": "json-mock-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node create_db.js && node index.js",
+    "dev": "node create_db.js && nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.2.0",
+    "json-server": "^0.17.4",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
