@@ -37,8 +37,19 @@ class UserModel {
         return this.data.get(userId);
     }
 
-    update(user) {
-        this.data.set(user._id, user);
+    update(userId, user) {
+        const toUpdate = this.find(userId);
+        if ( toUpdate ) {
+            Object.assign(toUpdate, user);
+            return toUpdate;
+        } else {
+            return null;
+        }
+    }
+    delete(userId) {
+        const user = this.data.get(userId);
+        this.data.delete(userId);
+        return user;
     }
 
     allUsers() {

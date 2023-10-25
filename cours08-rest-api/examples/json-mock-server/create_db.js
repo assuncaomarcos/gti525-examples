@@ -11,7 +11,7 @@ const databaseFile = 'db.json';
 const createUser = () => {
     const gender = faker.person.sexType();
     return {
-        _id: faker.string.uuid(),
+        id: faker.string.uuid(),
         firstName: faker.person.firstName(gender),
         lastName: faker.person.lastName(gender),
         address: faker.location.street(),
@@ -24,7 +24,7 @@ const createUser = () => {
 
 const createProduct = () => {
     return {
-        _id: faker.string.uuid(),
+        id: faker.string.uuid(),
         name: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
         price: faker.commerce.price({min: 10, max: 200, dec: 2, symbol: 'C$'})

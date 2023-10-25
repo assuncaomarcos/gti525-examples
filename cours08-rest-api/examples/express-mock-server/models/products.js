@@ -32,10 +32,21 @@ class ProductModel {
         return this.data.get(prodId);
     }
 
-    update(prod) {
-        this.data.set(prod._id, prod);
+    update(prodId, prod) {
+        const toUpdate = this.find(prodId);
+        if ( toUpdate ) {
+            Object.assign(toUpdate, prod);
+            return toUpdate;
+        } else {
+            return null;
+        }
     }
 
+    delete(prodId) {
+        const prod = this.data.get(prodId);
+        this.data.delete(prodId);
+        return prod;
+    }
     allProducts() {
         return Object.fromEntries(this.data);
     }

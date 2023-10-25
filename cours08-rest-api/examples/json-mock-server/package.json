@@ -1,7 +1,7 @@
 {
   "name": "json-mock-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example d'API de simulation avec JSONServer",
   "main": "index.js",
   "scripts": {
     "start": "node create_db.js && node index.js",
