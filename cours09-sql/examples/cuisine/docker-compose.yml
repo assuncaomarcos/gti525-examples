@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mariadb:
+    image: gti525/mariadb-cuisine:v1.0
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+      - /var/run/mysqld:/var/run/mysqld
+    ports:
+      - "3306:3306"
