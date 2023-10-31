@@ -29,6 +29,7 @@
                     <th>Prénom</th>
                     <th>Adresse</th>
                     <th>Ville</th>
+                    <th>Province</th>
                     <th>Birthday</th>
                     <th class="center">Actions</th>
                 </tr>
@@ -40,7 +41,8 @@
                         <td class="wide" data-field="firstName"><%= user.firstName %></td>
                         <td class="wide" data-field="address"><%= user.address %></td>
                         <td class="wide" data-field="city"><%= user.city %></td>
-                        <td class="wide" data-field="birthday"><%= user.birthday %></td>
+                        <td class="narrow" data-field="province"><%= user.province %></td>
+                        <td class="narrow" data-field="birthday"><%= user.birthday %></td>
                         <td class="center-align narrow">
                             <input name="itemId" type="hidden" value="<%= user._id %>">
                             <a class="edit_button waves-effect waves-light btn-small indigo darken-1">
