@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple d'application frontale</title>
+    <meta charset="UTF-8">
+    <%- include('../partials/head'); %>
+    <script type="module" src="js/users.js"></script>
+</head>
+<body class="container">
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="row valign-wrapper">
+        <div class="left-align col s10"><h3>Utilisateurs disponibles</h3></div>
+        <div class="col s2">
+            <a class="add_button btn waves-effect waves-light indigo darken-1 right">
+                <i class="material-icons left">add</i>Ajouter</a>
+        </div>
+    </div>
+    <div class="row valign-wrapper">
+        <div class="col s12">
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Birthday</th>
+                    <th class="center">Actions</th>
+                </tr>
+                </thead>
+                <tbody id="table_content">
+                <% users.forEach(user => { %>
+                    <tr class="content_row">
+                        <td class="wide" data-field="lastName"><%= user.lastName %></td>
+                        <td class="wide" data-field="firstName"><%= user.firstName %></td>
+                        <td class="wide" data-field="address"><%= user.address %></td>
+                        <td class="wide" data-field="city"><%= user.city %></td>
+                        <td class="wide" data-field="birthday"><%= user.birthday %></td>
+                        <td class="center-align narrow">
+                            <input name="itemId" type="hidden" value="<%= user._id %>">
+                            <a class="edit_button waves-effect waves-light btn-small indigo darken-1">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a class="delete_button waves-effect waves-light btn-small indigo darken-1">
+                                <i class="material-icons">delete_forever</i>
+                            </a>
+                        </td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer'); %>
+</body>
+</html>

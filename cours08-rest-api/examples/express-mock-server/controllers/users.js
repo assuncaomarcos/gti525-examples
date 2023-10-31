@@ -2,7 +2,7 @@ const model = require("../models/users");
 const { Response } = require("./util");
 
 async function allUsers(req, res){
-    res.json(Response.ok(Object.values(model.allUsers())));
+    res.json(Response.ok(model.allUsers()));
 }
 
 async function addUser(req, res){
@@ -36,5 +36,15 @@ async function updateUser(req, res) {
     }
 }
 
-module.exports = { allUsers, addUser, findUser, updateUser };
+async function deleteUser(req, res) {
+    const userId = req.params.userId;
+    const deleted = model.delete(userId);
+    if (deleted) {
+        res.json(Response.ok(deleted));
+    } else {
+        res.json(Response.error(404, "Utilisateur pas trouvé."));
+    }
+}
+
+module.exports = { allUsers, addUser, findUser, updateUser, deleteUser };
 

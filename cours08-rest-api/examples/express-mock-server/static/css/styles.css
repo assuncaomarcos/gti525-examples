@@ -1,0 +1,34 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.edit_form {
+    box-shadow: none;
+    border: none;
+}
+
+.edit_button {
+    margin-right: 1px;
+}
+
+.delete_button {
+    margin-left: 1px;
+}
+
+.add_button {
+    margin-right: 20px;
+}
+
+table .wide {
+    min-width: 200px;
+}
+
+table .narrow {
+    min-width: 150px;
+}
+
+#toast-container {
+    top: auto !important;
+    bottom: 5%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+}

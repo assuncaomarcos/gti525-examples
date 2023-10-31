@@ -48,7 +48,7 @@ class ProductModel {
         return prod;
     }
     allProducts() {
-        return Object.fromEntries(this.data);
+        return Object.values(Object.fromEntries(this.data));
     }
 }
 

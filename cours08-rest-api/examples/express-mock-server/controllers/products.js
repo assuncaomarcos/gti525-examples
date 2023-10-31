@@ -2,7 +2,7 @@ const model = require("../models/products");
 const { Response } = require("./util");
 
 async function allProducts(req, res){
-    res.json(Response.ok(Object.values(model.allProducts())));
+    res.json(Response.ok(model.allProducts()));
 }
 
 async function addProduct(req, res){
@@ -36,5 +36,15 @@ async function updateProduct(req, res) {
     }
 }
 
-module.exports = { allProducts, addProduct, findProduct, updateProduct };
+async function deleteProduct(req, res) {
+    const prodId = req.params.prodId;
+    const deleted = model.delete(prodId);
+    if (deleted) {
+        res.json(Response.ok(deleted));
+    } else {
+        res.json(Response.error(404, "Produit pas trouvé."));
+    }
+}
+
+module.exports = { allProducts, addProduct, findProduct, updateProduct, deleteProduct };
 

@@ -9,6 +9,7 @@ router.route("/api/products")
 
 router.route("/api/products/:prodId")
     .get(controller.findProduct)
-    .put(controller.updateProduct);
+    .put(controller.updateProduct)
+    .delete(controller.deleteProduct);
 
 module.exports = router;
