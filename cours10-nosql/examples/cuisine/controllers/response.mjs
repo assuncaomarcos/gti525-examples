@@ -13,6 +13,14 @@ export class Response {
         return new Response(code, message, data);
     }
 
+    static notFound(message) {
+        return new Response(404, message);
+    }
+
+    static badRequest(message) {
+        return new Response(400, message);
+    }
+
     static serverError(message) {
         return new Response(505, message);
     }

@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+
+  mongodb:
+    image: gti525/mongodb-cuisine-security:v1.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - ./data/mongodb:/data/db
+    ports:
+      - "27017:27017"

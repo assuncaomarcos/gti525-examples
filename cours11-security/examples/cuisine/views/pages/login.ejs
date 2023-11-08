@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Se loguer</title>
+    <%- include('../partials/head'); %>
+    <script type="module" src="js/login.js"></script>
+</head>
+<body>
+<main class="container login_box">
+    <h3 class="center-align">Se connecter</h3>
+    <div class="row">
+        <form class="login_form" action="/login" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" name="email" class="validate" required>
+                    <label for="email">Adresse courriel</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate" required>
+                    <label for="password">Mot de passe</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit">Soumettre</button>
+            </div>
+            <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
+        </form>
+    </div>
+
+    <div class="row center-align">
+        <p>Vous n'avez pas un compte ? <a href="/signup">Inscrivez-vous ici</a></p>
+    </div>
+
+    <div class="row center-align">
+        <p>Créé par <a href="https://www.marcosassuncao.com">Marcos Assuncao</a></p>
+        <p>Dans le cadre du cours <a href="https://www.etsmtl.ca/etudes/cours/GTI525">GTI525</a></p>
+        <p>Authentification possible par <a href="https://www.passportjs.org">Passport</a></p>
+    </div>
+</main>
+</body>
+</html>

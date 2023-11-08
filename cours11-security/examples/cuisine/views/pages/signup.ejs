@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>S'inscrire</title>
+    <%- include('../partials/head'); %>
+    <script type="module" src="js/signup.js"></script>
+</head>
+<body>
+<main class="container login_box">
+    <h3 class="center-align">S'inscrire</h3>
+    <div class="row">
+        <form class="signup_form" action="/signup" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="firstname" name="firstname" type="text" class="validate" required>
+                    <label for="firstname">Prénom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="lastname" name="lastname" type="text" class="validate" required>
+                    <label for="lastname">Nom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">Adresse courriel</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate" required>
+                    <label for="password">Mot de passe</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit">Soumettre</button>
+            </div>
+            <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
+        </form>
+    </div>
+    <div class="center-align row">
+        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a></p>
+    </div>
+</main>
+</body>
+</html>

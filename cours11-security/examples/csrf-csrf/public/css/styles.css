@@ -1,0 +1,17 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.prompt_box {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 2px solid #e6e6e6;
+    border-radius: 10px;
+}
+
+#toast-container {
+    top: auto !important;
+    bottom: 5%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+}

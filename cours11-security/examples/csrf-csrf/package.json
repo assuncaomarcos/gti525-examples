@@ -1,0 +1,23 @@
+{
+  "name": "crsf",
+  "version": "1.0.0",
+  "description": "Exemple d'usage de CSRF sur Express",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "dev": "NODE_ENV=development nodemon index.mjs"
+  },
+  "keywords": ["CSRF", "Express"],
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "csrf-csrf": "^3.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "response-format": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

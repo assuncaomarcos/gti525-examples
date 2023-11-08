@@ -133,6 +133,7 @@ function createInsertRow(actionSave, actionDelete, fields) {
     const input = document.createElement('input');
     input.type = "hidden";
     input.className = "itemId";
+    cell.classList.add("center-align", "narrow");
     cell.appendChild(input);
     cell.appendChild(createButton("edit_button", "done", actionSave));
     cell.appendChild(createButton("delete_button", "delete_forever", actionDelete));

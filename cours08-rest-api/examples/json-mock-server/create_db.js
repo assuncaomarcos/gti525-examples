@@ -1,10 +1,10 @@
 const { fakerFR_CA: faker } = require('@faker-js/faker');
 const _ = require('lodash');
-const fs = require("fs");
+const fs = require("node:fs");
 
 faker.seed(525);
 faker.setDefaultRefDate('2023-09-01T00:00:00.000Z');
-const numberUsers = 20;
+const numberUsers = 15;
 const numberProducts = 50;
 const databaseFile = 'db.json';
 
@@ -17,7 +17,7 @@ const createUser = () => {
         address: faker.location.street(),
         city: faker.location.city(),
         province: faker.location.state({abbreviated: true}),
-        birthday: faker.date.birthdate(),
+        birthday: faker.date.birthdate().toISOString().split('T').shift(),
         phone: faker.phone.number()
     }
 }

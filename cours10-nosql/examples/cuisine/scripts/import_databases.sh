@@ -1,4 +1,5 @@
 #!/bin/bash
 
-cd /data/mongodb-sample-dataset || exit
+cd /data/datasets || exit
+
 bash script.sh

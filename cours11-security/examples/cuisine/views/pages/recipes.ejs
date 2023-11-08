@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>La Cuisine GTI525</title>
+    <meta charset="UTF-8">
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main id="content">
+    <h4>Les recettes disponibles</h4>
+    <hr/>
+    <div class="row">
+        <%  dishes.forEach(function(dish) {
+            const link = `recipe_detail?id=${dish.id}` %>
+        <div class="col s12 m6 xl4">
+            <div class="card">
+                <div class="card-image">
+                    <a href="<%= link %>"><img class="photo_in_list" src="<%= dish.photo %>" alt="<%= dish.name %>"></a>
+                </div>
+                <div class="card-content">
+                    <span class="flow-text"><a class="blue-grey-text text-darken-2"
+                                               href="<%= link %>"><%= dish.name %></a></span>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>
+</body>
+</html>

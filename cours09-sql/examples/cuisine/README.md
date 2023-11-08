@@ -19,5 +19,5 @@ cp .env_example .env
 docker-compose up
 ``` 
 
-Les recettes utilisés dans cette application ont été extraites du livre **Le grand livre Marabout 
+Les recettes utilisées dans cette application ont été extraites du livre **Le grand livre Marabout 
 de la cuisine du monde.** Merci de citer la source des recettes si vous utilisez cet exemple.

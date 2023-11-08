@@ -1,0 +1,23 @@
+{
+  "name": "helmet",
+  "version": "1.0.0",
+  "description": "Exemple de politique de contenu",
+  "main": "index.mjs",
+  "scripts": {
+    "dev": "nodemon index.mjs"
+  },
+  "keywords": [
+    "CSP",
+    "Helmet",
+    "XSS"
+  ],
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "helmet": "^7.0.0"
+  }
+}

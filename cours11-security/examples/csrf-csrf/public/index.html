@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Se loguer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="prompt_box">
+    <h3 class="center-align">Se loguer</h3>
+    <div class="row">
+        <form id="user_form" action="/login" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" name="email" class="validate" required>
+                    <label for="email">Adresse courriel</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate" required>
+                    <label for="password">Mot de passe</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit">Soumettre</button>
+            </div>
+        </form>
+    </div>
+    <section id="message_section" class="hide">
+        <div id="api_message" class="#ffe0b2 orange lighten-4 center-align"><p>Message</p></div>
+    </section>
+</div>
+</body>
+<script>
+
+    async function handleFetch(url, requestInfo={}) {
+        const response = await fetch(url, requestInfo);
+        if (!response.ok) {
+            throw new Error(`Erreur dans la requête: ${response.statusText}`);
+        }
+        const json = await response.json();
+        if (json.statusCode === 200) {
+            return json;
+        } else {
+            throw new Error(`Erreur dans la réponse: ${json.message}`);
+        }
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const url = form.getAttribute("action");
+        const plainFormData = Object.fromEntries(new FormData(form).entries());
+        const jsonString = JSON.stringify(plainFormData);
+
+        try {
+            let json = await handleFetch("csrf-token");
+            const { token } = json.data;
+
+            const fetchOptions = {
+                method: "POST",
+                // mode: "cors",
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    "x-csrf-token": token,   // commentez cette ligne pour générer une erreur.
+                },
+                body: jsonString,
+            };
+
+            json = await handleFetch(url, fetchOptions);
+            M.toast({ html: json.message });
+        } catch (error) {
+            M.toast({ html: error.message });
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        M.AutoInit();
+        const userForm = document.getElementById("user_form");
+        userForm.addEventListener('submit', handleSubmit);
+    });
+
+</script>
+</html>

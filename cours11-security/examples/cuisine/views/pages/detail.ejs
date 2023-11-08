@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>La Cuisine GTI525</title>
+    <meta charset="UTF-8">
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main id="content">
+    <div class="row recipe_details">
+        <div class="col s12 m12 xl12">
+            <img class="photo_in_recipe" src="<%= dish.photo %>" alt="<%= dish.name %>">
+            <h3><%= dish.name %></h3>
+            <hr/>
+        </div>
+        <div class="col s12 m6 xl5">
+            <h4>Ingredients</h4>
+            <div class="divider"></div>
+            <ul class="flow-text">
+                <%  dish?.ingredients.forEach(i => { %>
+                <li><%= `${i.quantity} ${i.unit} de ${i.name}` %></li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="col s12 m6 xl7">
+            <h4>Mode de preparation</h4>
+            <div class="divider"></div>
+            <ol class="flow-text">
+                <%  dish?.directions.forEach(d => { %>
+                    <li><%= d.description %></li>
+                <% }); %>
+            </ol>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>
+</body>
+</html>

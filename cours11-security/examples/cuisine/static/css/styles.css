@@ -1,0 +1,42 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.photo_in_list {
+    object-fit: cover;
+    height: 300px;
+    max-width: 100%;
+}
+
+.photo_in_recipe {
+    object-fit: cover;
+    height: 350px;
+    width: 100%;
+}
+
+.recipe_details {
+    padding-top: 20px;
+    position: relative;
+}
+
+.login_box {
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 600px;
+}
+
+#toast-container {
+    top: auto !important;
+    bottom: 5%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+}
