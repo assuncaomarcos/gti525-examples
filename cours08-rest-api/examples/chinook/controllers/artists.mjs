@@ -15,6 +15,17 @@ class ArtistsController extends AbstractController {
             res.status(505);
         }
     }
+
+    async artistById(req, res) {
+        const artistId = req?.params?.artistId;
+        if (artistId) {
+            const result = await model.artistById(parseInt(artistId));
+            if (result) {
+                return res.json(Response.ok(result));
+            }
+        }
+        res.json(Response.notFound("Artiste introuvable."));
+    }
 }
 
 export default new ArtistsController();

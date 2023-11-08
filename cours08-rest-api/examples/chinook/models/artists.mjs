@@ -11,6 +11,10 @@ class Artists {
        const row = await db.get("SELECT COUNT(*) AS count FROM artists");
        return row?.count || 0;
     }
+
+    async artistById(artistId){
+        return await db.get("SELECT * FROM artists WHERE ArtistId = ?", artistId);
+    }
 }
 
 export default new Artists();

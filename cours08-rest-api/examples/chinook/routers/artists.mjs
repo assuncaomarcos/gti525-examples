@@ -6,4 +6,7 @@ const router = Router();
 router.route("/")
     .get(controller.all);
 
+router.route("/:artistId")
+    .get(controller.artistById);
+
 export default router;
