@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "author": "Marcos Dias de Assuncao",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@tensorflow/tfjs-node": "^3.19.0"
+    "@tensorflow/tfjs-node": "^4.13.0"
   }
 }

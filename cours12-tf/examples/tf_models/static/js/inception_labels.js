@@ -1,4 +1,4 @@
-const LABELS = [
+export const INCEPTION_LABELS = [
     "background",
     "tench",
     "goldfish",

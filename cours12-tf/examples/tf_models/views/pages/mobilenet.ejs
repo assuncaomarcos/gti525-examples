@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple d'utilisation du modèle <%= modelName %></title>
+    <%- include('../partials/head'); %>
+    <!-- Importer la bibliotéque TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest" type="text/javascript"></script>
+    <!-- Importer le modèle MobileNet afin que nous puissions reconnaître les choses dans les images -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script type="module" src="js/mobilenet.js"></script>
+</head>
+<body>
+<header class="container center">
+    <%- include('../partials/header'); %>
+</header>
+<%- include('../partials/preloader'); %>
+<%- include('../partials/image_list'); %>
+</body>
+</html>

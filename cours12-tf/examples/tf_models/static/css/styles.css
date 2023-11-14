@@ -1,0 +1,44 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.padding-left {
+    margin-left: 15px;
+}
+
+.padding-right {
+    margin-right: 15px;
+}
+
+.classify {
+    width: 100%;
+}
+
+.tab_group {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tab_content {
+    position: relative;
+}
+
+.tab_content img, canvas {
+    position: absolute;
+    left: 0;
+}
+
+.credits {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #c0bdbd;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.result {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    vertical-align: center;
+}
