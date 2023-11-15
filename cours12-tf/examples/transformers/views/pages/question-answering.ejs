@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple d'utilisation d'une pipeline de questions-réponses</title>
+    <%- include('../partials/head'); %>
+    <script type="module" src="js/question.js"></script>
+</head>
+<body>
+<%- include('../partials/header'); %>
+<main class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>Questions-Réponses (Q&R)</h3>
+            <p class="flow-text"> Pour utiliser ce système de Q&R, veuillez saisir les champs
+                ci-dessous. Dans la zone de texte "Contexte", veuillez fournir le texte sur lequel vous souhaitez poser
+                des questions. Ensuite, dans le champ "Question", saisissez la question spécifique que vous avez
+                concernant ce texte. </p>
+        </div>
+    </div>
+    <div class="row">
+        <form class="col s12" method="post" action="/api/question-answering">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">edit</i>
+                <textarea id="context" class="materialize-textarea"></textarea>
+                <label for="context">Contexte</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">question_mark</i>
+                <textarea id="question" class="materialize-textarea"></textarea>
+                <label for="question">Question</label>
+            </div>
+            <div class="col s12 ">
+                <button class="submit right btn waves-effect waves-light" type="submit">Soumettre
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="row answer_container hide">
+        <div class="col s12">
+            <h4>Réponse :</h4>
+            <div class="flow-text answer"></div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

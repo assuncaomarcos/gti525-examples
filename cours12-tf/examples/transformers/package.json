@@ -1,0 +1,26 @@
+{
+  "name": "qna",
+  "version": "1.0.0",
+  "description": "Example d'usage de Transformers",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "dev": "nodemon index.mjs"
+  },
+  "keywords": [
+    "GPT-2",
+    "Transformers"
+  ],
+  "author": "Marcos Dias de Assuncao",
+  "license": "MIT",
+  "dependencies": {
+    "@xenova/transformers": "^2.8.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "response-format": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

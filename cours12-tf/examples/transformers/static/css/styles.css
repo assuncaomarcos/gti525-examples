@@ -1,0 +1,21 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.padding-left {
+    margin-left: 15px;
+}
+
+.padding-right {
+    margin-right: 15px;
+}
+
+.flow-text {
+    font-size: 20px;
+}
+
+#toast-container {
+    top: auto !important;
+    bottom: 5%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+}
