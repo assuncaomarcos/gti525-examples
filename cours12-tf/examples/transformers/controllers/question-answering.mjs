@@ -26,7 +26,7 @@ const questionAnswering = [
             const {context, question} = req.body;
             const pipeline = await QnAPipeline.getInstance();
             const answer = await pipeline(question, context);
-            res.json(Format.success("OK", answer));
+            return res.json(Format.success("OK", answer));
         }
         res.send(Format.badRequest("Contexte et question obligatoires", { errors: validation.array() }));
     }];
