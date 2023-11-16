@@ -2,8 +2,8 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.route("/").get(async (req, res) => {
-    res.render('pages/toronto');
+router.route(["/", "/neighborhoods"]).get(async (req, res) => {
+    res.render('pages/neighborhoods');
 });
 
 export default router;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Carte de la Ville de Toronto</title>
+    <%- include('../partials/head'); %>
+    <script type="module" src="js/neighborhoods.js"></script>
+</head>
+<body>
+<%- include('../partials/header'); %>
+<main class="container">
+<div class="row">
+    <div class="col s12">
+        <h4>Afficher les quartiers à l'intérieur d'une zone</h4>
+        <p class="flow-text">Pour afficher les quartiers d'une zone spécifique, dessinez un polygone
+            représentant cette zone à l'aide des outils de dessin. Une fois le polygone tracé, la page affichera
+            les quartiers qui se trouvent à l'intérieur de cette zone dessinée.</p>
+    </div>
+    <div id="map" class="col s12"> </div>
+</div>
+</main>
+</body>
+</html>

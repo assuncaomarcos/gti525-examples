@@ -6,8 +6,11 @@ temp/*
 # IDEA
 .idea
 
+.cache
+
 # Containers' data
 data/*
+cours10-nosql/examples/toronto/data/*
 
 # Logs
 logs

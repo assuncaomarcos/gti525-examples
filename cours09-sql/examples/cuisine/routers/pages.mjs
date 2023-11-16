@@ -3,7 +3,7 @@ import dishModel from '../models/dishes.mjs';
 
 const router = Router();
 
-router.route("/").get(async (req, res) => {
+router.route(["/", "/recipes"]).get(async (req, res) => {
     const dishes = await dishModel.allDishes();
     res.render('pages/index', { dishes: dishes });
 });
