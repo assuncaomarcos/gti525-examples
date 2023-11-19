@@ -13,6 +13,10 @@ app.get(['/', '/question-answering'], async(req, res) => {
     res.render("pages/question-answering");
 });
 
+app.get('/text-generation', async(req, res) => {
+    res.render("pages/text-generation");
+});
+
 app.post('/api/question-answering', qnaController.questionAnswering);
 
 app.post('/api/text-generation', textController.textGeneration);

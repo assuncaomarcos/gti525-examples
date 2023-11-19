@@ -19,6 +19,7 @@ class TextGenerationPipeline {
     }
 }
 
+// Charge le modèle au début, car il peut pendre du temps pour télécharger les fichiers nécessaires.
 const generator = await TextGenerationPipeline.getInstance();
 
 const textGeneration = [
@@ -32,9 +33,13 @@ const textGeneration = [
                 repetition_penalty: 1.2,
                 do_sample: true
             });
-            res.json(Format.success("OK", answer));
+            if (answer?.length) {
+                return res.json(Format.success("OK", answer.pop()));
+            } else {
+                return res.json(Format.badRequest("Erreur pour obtenir une réponse: " + answer ));
+            }
         } else {
-            res.json(Format.badRequest("Prompt obligatoire", { errors: validation.array() }));
+            return res.json(Format.badRequest("Prompt obligatoire", { errors: validation.array() }));
         }
     }];
 
