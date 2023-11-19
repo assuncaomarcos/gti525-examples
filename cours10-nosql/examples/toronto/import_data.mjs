@@ -40,7 +40,7 @@ async function importSites() {
 
     for (const {properties, geometry} of geoCollection.features) {
         const _id = properties._id;
-        const name = properties.PLACE_NAME;
+        const name = properties.NAME;
         const category = properties.CATEGORY;
         const website = properties.WEBSITE;
         const location = geometry;

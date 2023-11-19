@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sites importants</title>
+    <%- include('../partials/head'); %>
+    <script type="module" src="js/sites.js"></script>
+</head>
+<body>
+<%- include('../partials/header'); %>
+<main class="container">
+<div class="row">
+    <div class="col s12">
+        <h4>Afficher les sites importants</h4>
+        <p class="flow-text">Placez un marqueur et choisissez la distance maximale pour afficher les sites importants.</p>
+    </div>
+    <div class="col s6">
+        <p class="range-field">
+            <label for="distance">Distance maximale (em metres)</label>
+            <input type="range" id="distance" min="200" max="3000"/>
+        </p>
+    </div>
+    <div id="map" class="col s12"> </div>
+</div>
+</main>
+</body>
+</html>

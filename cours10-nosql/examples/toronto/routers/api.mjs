@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import nController from '../controllers/api.mjs';
+import nController from '../controllers/neighborhoods.mjs';
+import sitesController from '../controllers/sites.mjs';
 
 const router = Router();
 
@@ -11,5 +12,11 @@ router.route("/neighborhoods/:id")
 
 router.route("/neighborhoods/search")
     .post(nController.withinArea);
+
+router.route("/sites")
+    .get(sitesController.search);
+
+router.route("/sites/:id")
+    .get(sitesController.byId);
 
 export default router;
