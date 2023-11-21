@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
 import nController from './controllers/neighborhoods.mjs';
+import sitesController from './controllers/sites.mjs';
 
 const dotEnv = dotenv.config();
 dotenvExpand.expand(dotEnv);
@@ -14,6 +15,9 @@ app.use(express.json());
 app.get("/api/neighborhoods", nController.all);
 app.get("/api/neighborhoods/:id", nController.byId);
 app.post("/api/neighborhoods/search", nController.withinArea);
+
+app.get("/api/sites", sitesController.search);
+app.get("/api/sites/:id", sitesController.byId);
 
 try {
     await mongoose.connect(process.env.MONGO_URI);
