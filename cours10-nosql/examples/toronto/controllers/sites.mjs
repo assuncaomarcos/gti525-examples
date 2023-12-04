@@ -39,6 +39,17 @@ class SitesController {
             res.json(Format.badRequest("Mauvaise requête: " + error.message));
         }
     }
+
+    async withinPolygon(req, res) {
+        const searchArea = req.body;
+        try {
+            const results = await sites.withinPolygon(searchArea);
+            const geoJSON = GeoJSON.parse(results, {GeoJSON: 'location'});
+            res.json(Format.success("OK", geoJSON));
+        } catch (error) {
+            res.json(Format.badRequest("Mauvaise requête: " + error.message));
+        }
+    }
 }
 
 function parseLocation(locationString) {

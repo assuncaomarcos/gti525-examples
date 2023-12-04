@@ -16,6 +16,9 @@ router.route("/neighborhoods/search")
 router.route("/sites")
     .get(sitesController.search);
 
+router.route("/sites/search")
+    .post(sitesController.withinPolygon);
+
 router.route("/sites/:id")
     .get(sitesController.byId);
 

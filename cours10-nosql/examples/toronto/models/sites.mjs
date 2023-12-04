@@ -39,6 +39,21 @@ class Sites {
             throw new Error("Erreur pour récupérer les sites: " + error.message);
         }
     }
+
+    async withinPolygon(searchArea) {
+        const db = dbConnection.getDatabase();
+        try {
+            return await db.collection("sites").find({
+                location: {
+                    $geoWithin: {
+                        $geometry: searchArea
+                    }
+                }
+            }).toArray();
+        } catch (error) {
+            throw new Error(`Erreur: ${error.message}`);
+        }
+    }
 }
 
 export default new Sites();
