@@ -10,7 +10,7 @@
 <div id="content"></div>
 
 <script>
-    // Lance une requête et recupère le JSON de réponse
+    // Lance une requête et récupère le JSON de réponse
     function fetchData(url, callback) {
         const xhr = new XMLHttpRequest();
         xhr.responseType = 'json';
@@ -33,7 +33,7 @@
     const url = `${API_URL}/images?_quantity=${quantity}&_type=${type}&_height=${height}`;
 
     fetchData(url, (err, json) => {
-        if (err || json.code != 200) {
+        if (err || json.code !== 200) {
             let txt = document.createTextNode(JSON.stringify(err.message));
             document.getElementById("content").appendChild(txt);
         } else {

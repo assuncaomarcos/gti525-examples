@@ -21,7 +21,7 @@
     function bubbleHandler (e) {
         console.log("Gestionnaire bubble appelé sur: " + e.currentTarget.id);
         console.log("Cible de l'événement: " + e.target.id);
-        if (e.target.id == "three") {
+        if (e.target.id === "three") {
             e.stopImmediatePropagation();
         }
     }

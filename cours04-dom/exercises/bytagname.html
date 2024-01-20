@@ -28,7 +28,7 @@
     function findElements(node) {
       for (let i = 0; i < node.childNodes.length; i++) {
         let child = node.childNodes[i];
-        if (child.nodeType == Node.ELEMENT_NODE && child.nodeName == tag) {
+        if (child.nodeType === Node.ELEMENT_NODE && child.nodeName === tag) {
           nodes.push(child);
         }
         findElements(child);

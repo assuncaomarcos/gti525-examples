@@ -5,7 +5,7 @@ for (let n = 0; n <= 5; n++) {
 }
 
 for (let n = 20; ; n++) {
-    if (n % 7 == 0) {
+    if (n % 7 === 0) {
         console.log(n);
         break;
     }

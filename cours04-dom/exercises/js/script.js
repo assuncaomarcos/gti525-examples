@@ -1,15 +1,15 @@
 import { Product } from './product.js';
 
-const produits = [
+const products = [
     new Product('Téléphone', 299, 10),
     new Product('Ordinateur portable', 999, 5),
     new Product('Casque audio', 79, 15)
 ];
 
-const listeProduitsDiv = document.getElementById('liste-produits');
-produits.forEach(produit => {
-    const produitDiv = document.createElement('div');
-    produitDiv.classList.add("flow-text");
-    produitDiv.textContent = produit.afficherDetails();
-    listeProduitsDiv.appendChild(produitDiv);
+const productListDiv = document.getElementById('product-list');
+products.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add("flow-text");
+    productDiv.textContent = product.showDetails();
+    productListDiv.appendChild(productDiv);
 });

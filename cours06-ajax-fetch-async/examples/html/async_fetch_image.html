@@ -17,7 +17,7 @@
     }
     // attend que la promesse soit remplie avant de faire l'affectation
     // et de retourner le contenu du blob
-    return blob = await response.blob();
+    return await response.blob();
   }
 
   // createImage() traitée comme une promesse

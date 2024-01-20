@@ -1,11 +1,11 @@
 export class Product {
-    constructor(nom, prix, quantite) {
-        this.nom = nom;
-        this.prix = prix;
-        this.quantite = quantite;
+    constructor(name, price, quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
     }
 
-    afficherDetails() {
-        return `${this.nom} - Prix : ${this.prix} CAD - Quantité : ${this.quantite}`;
+    showDetails() {
+        return `${this.name} - Prix : ${this.price} CAD - Quantité : ${this.quantity}`;
     }
 }

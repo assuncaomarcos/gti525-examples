@@ -12,7 +12,7 @@
         if(!response.ok) {
             throw new Error(`Erreur HTTP : ${response.status}`);
         }
-        return json = await response.json();
+        return await response.json();
     }
 
     const baseUrl = 'https://swapi.dev/api/planets';

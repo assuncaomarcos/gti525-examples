@@ -24,7 +24,7 @@
     function loadContent() {
         let xhr = new XMLHttpRequest();
         xhr.onload = function() {
-            if (this.status == 200) {
+            if (this.status === 200) {
                 document.getElementById("content").innerHTML = this.responseText;
             }
         }

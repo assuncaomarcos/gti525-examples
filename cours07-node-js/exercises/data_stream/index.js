@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('node:fs');
 const { bookPath } = require('./book');
 
 const textToFind = "large rose-tree stood";

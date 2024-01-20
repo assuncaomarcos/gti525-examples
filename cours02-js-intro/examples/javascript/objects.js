@@ -52,9 +52,9 @@ console.log(book.getInfo());  // The Great Gatsby by F. Scott Fitzgerald, 1925
 console.log("Subtitle:" + book.subtitle);   // undefined
 
 
-// Accès conditionnel à partir d'ES2020:
+// Accès conditionnel à partir d'ES2020 :
 
-// Le problème:
+// Le problème :
 console.log(book.subtitle.length);   //  TypeError: book.subtitle is undefined
 
 // Une possible solution

@@ -42,7 +42,7 @@ app.get('/movies', (req, res) => {
 
 app.get('/movies/:movieId', (req, res) => {
     let movie = movieDataset[req.params.movieId];
-    if (movie == undefined) {
+    if (movie === undefined) {
         res.sendStatus(404);
     } else {
         res.json(movie);

@@ -1,6 +1,5 @@
-const http = require('https');
-const fs = require('fs');
-const EventEmitter = require('events');
+const fs = require('node:fs');
+const EventEmitter = require('node:events');
 
 function registerEvents(emitter, keywords) {
     const counts = [];

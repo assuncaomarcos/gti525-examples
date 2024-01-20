@@ -13,7 +13,7 @@
 </div>
 
 <script>
-    // Lance une requête et recupère le JSON de réponse
+    // Lance une requête et récupère le JSON de réponse
     function fetchData(url, callback) {
         let xhr = new XMLHttpRequest();
         xhr.responseType = 'json';
@@ -30,7 +30,7 @@
     }
 
     /* Le JSON de réponse a plusieurs objets imbriqués.
-       Cette founction cherche une proprieté à partir d'une chaine.
+       Cette fonction cherche une propriété à partir d'une chaine.
        Ex. birth.place.country.en */
     function findProperty(obj, prop, defValue = null) {
         prop = prop.split('.');
