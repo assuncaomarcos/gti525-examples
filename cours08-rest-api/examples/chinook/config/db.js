@@ -1,7 +1,6 @@
 import sqlite3 from 'sqlite3';
 
 class SQLite3Driver {
-
     constructor() {
         this.db = new sqlite3.Database('db/chinook.db',
             sqlite3.OPEN_READWRITE, (err) => {

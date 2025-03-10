@@ -1,7 +1,6 @@
-import db from "../config/db.mjs";
+import db from "../config/db.js";
 
 class Artists {
-
     async all(page= 1, pageSize= 10) {
         const offset = (page - 1) * pageSize;
         return await db.all("SELECT * FROM artists LIMIT ? OFFSET ?", pageSize, offset);

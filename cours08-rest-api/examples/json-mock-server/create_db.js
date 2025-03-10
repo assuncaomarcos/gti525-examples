@@ -1,9 +1,9 @@
-const { fakerFR_CA: faker } = require('@faker-js/faker');
-const _ = require('lodash');
-const fs = require("node:fs");
+import {fakerFR_CA as faker} from '@faker-js/faker';
+import _ from 'lodash';
+import fs from "node:fs";
 
 faker.seed(525);
-faker.setDefaultRefDate('2023-09-01T00:00:00.000Z');
+faker.setDefaultRefDate('2025-03-01T00:00:00.000Z');
 const numberUsers = 15;
 const numberProducts = 50;
 const databaseFile = 'db.json';

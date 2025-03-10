@@ -1,4 +1,4 @@
-const jsonServer = require('json-server');
+import jsonServer from 'json-server';
 
 const port = process.env.NODE_PORT || 3000;
 const server = jsonServer.create();

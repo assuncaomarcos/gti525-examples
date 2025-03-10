@@ -1,5 +1,5 @@
-import model from '../models/artists.mjs';
-import { AbstractController, Response } from "./abstract.mjs";
+import model from '../models/artists.js';
+import { AbstractController, Response } from "./abstract.js";
 
 class ArtistsController extends AbstractController {
 

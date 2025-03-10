@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Example d'API de simulation avec JSONServer",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node create_db.js && node index.js",
     "dev": "node create_db.js && nodemon index.js"
@@ -11,11 +12,11 @@
   "author": "Marcos Dias de Assuncao",
   "license": "MIT",
   "dependencies": {
-    "@faker-js/faker": "^8.2.0",
+    "@faker-js/faker": "^9.6.0",
     "json-server": "^0.17.4",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.1.9"
   }
 }

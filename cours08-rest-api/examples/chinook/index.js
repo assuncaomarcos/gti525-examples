@@ -1,5 +1,5 @@
 import express from 'express';
-import artistsRouter from './routers/artists.mjs';
+import artistsRouter from './routers/artists.js';
 
 const PORT = process.env.NODE_PORT || 3000;
 

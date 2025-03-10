@@ -1,7 +1,7 @@
-const express = require('express');
-const prodRouter = require("./routers/products");
-const userRouter = require("./routers/users");
-const pagesRouter = require("./routers/pages");
+import express from 'express';
+import prodRouter from "./routers/products.js";
+import userRouter from "./routers/users.js";
+import pagesRouter from "./routers/pages.js";
 
 const PORT = process.env.NODE_PORT || 3000;
 
