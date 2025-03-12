@@ -1,18 +1,16 @@
 {
   "name": "cuisine",
   "version": "1.0.0",
-  "description": "Exemple d'application Express avec MariaDB",
+  "description": "Exemple d'usage de données géospatiales",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "import": "node import_data.js",
+    "whereis": "node whereis.js"
   },
   "keywords": [
-    "express",
     "mariadb",
-    "sql",
-    "REST API"
+    "sql"
   ],
   "author": "Marcos Dias de Assuncao",
   "license": "MIT",
@@ -21,8 +19,6 @@
   },
   "dependencies": {
     "dotenv": "^16.4.7",
-    "ejs": "^3.1.10",
-    "express": "^4.21.2",
     "mariadb": "^3.4.0"
   }
 }
