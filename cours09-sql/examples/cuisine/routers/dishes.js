@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import controller from '../controllers/dishes.mjs';
+import controller from '../controllers/dishes.js';
 
 const router = Router();
 

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import dishModel from '../models/dishes.mjs';
+import dishModel from '../models/dishes.js';
 
 const router = Router();
 

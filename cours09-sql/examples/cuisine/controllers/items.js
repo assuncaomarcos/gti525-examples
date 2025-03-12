@@ -1,5 +1,5 @@
-import model from '../models/items.mjs';
-import { Response } from '../util/util.mjs';
+import model from '../models/items.js';
+import { Response } from '../util/util.js';
 
 class ItemController {
     async allItems(req, res) {

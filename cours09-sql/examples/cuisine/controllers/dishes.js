@@ -1,5 +1,5 @@
-import model from '../models/dishes.mjs';
-import { Response } from '../util/util.mjs';
+import model from '../models/dishes.js';
+import { Response } from '../util/util.js';
 
 class DishController {
     async allDishes(req, res){

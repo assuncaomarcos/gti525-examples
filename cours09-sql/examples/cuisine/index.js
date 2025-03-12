@@ -1,7 +1,7 @@
 import express from 'express';
-import dishRouter from './routers/dishes.mjs';
-import itemRouter from './routers/items.mjs';
-import pagesRouter from './routers/pages.mjs';
+import dishRouter from './routers/dishes.js';
+import itemRouter from './routers/items.js';
+import pagesRouter from './routers/pages.js';
 
 const app = express();
 const PORT = process.env.NODE_PORT || 3000;

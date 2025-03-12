@@ -5,8 +5,8 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "start": "node index.mjs",
-    "dev": "nodemon index.mjs"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "express",
@@ -17,12 +17,12 @@
   "author": "Marcos Dias de Assuncao",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.1.9"
   },
   "dependencies": {
-    "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "mariadb": "^3.2.2"
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mariadb": "^3.4.0"
   }
 }

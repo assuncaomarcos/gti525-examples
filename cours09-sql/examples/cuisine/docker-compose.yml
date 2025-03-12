@@ -1,6 +1,8 @@
-version: '3.8'
 services:
   mariadb:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: gti525/mariadb-cuisine:v1.0
     restart: always
     environment:
