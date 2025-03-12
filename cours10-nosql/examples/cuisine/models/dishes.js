@@ -1,4 +1,4 @@
-import db from '../config/db.mjs';
+import db from '../config/db.js';
 import { ObjectId } from "mongodb";
 
 class DishModel {

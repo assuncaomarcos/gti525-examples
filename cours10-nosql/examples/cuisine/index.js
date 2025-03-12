@@ -1,6 +1,6 @@
 import express from 'express';
-import db from './config/db.mjs';
-import dishRouter from './routers/dishes.mjs';
+import db from './config/db.js';
+import dishRouter from './routers/dishes.js';
 
 const PORT = process.env.NODE_PORT || 3000;
 const app = express();

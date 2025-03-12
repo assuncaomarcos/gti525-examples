@@ -1,5 +1,5 @@
-import model from '../models/dishes.mjs';
-import { Response } from './response.mjs';
+import model from '../models/dishes.js';
+import { Response } from './response.js';
 
 class IngredientsController {
 

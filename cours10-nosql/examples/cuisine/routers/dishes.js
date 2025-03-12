@@ -1,7 +1,7 @@
 import { Router } from "express";
-import dishController from "../controllers/dishes.mjs";
-import ingredientController from "../controllers/ingredients.mjs";
-import directionController from "../controllers/directions.mjs";
+import dishController from "../controllers/dishes.js";
+import ingredientController from "../controllers/ingredients.js";
+import directionController from "../controllers/directions.js";
 
 const router = Router();
 

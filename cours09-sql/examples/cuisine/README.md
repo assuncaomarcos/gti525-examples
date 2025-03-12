@@ -4,19 +4,15 @@ Le but de cette application est de fournir des notions de base sur les bases de 
 les API REST, et Express.js.
 
 Instructions à suivre avant de démarrer cette application:
-* Construire l'image utilisée par le conteneur Docker qui hébergera la base de données MariaDB:
-```bash
-docker build -t gti525/mariadb-cuisine:v1.0 .
-``` 
 
 * Créer un fichier `.env`. Vous pouvez utiliser `.env_example`:
 ```bash
 cp .env_example .env
 ``` 
 
-* Démarrer le conteneur à l'aide de docker-compose :
+* Construire l'image et démarrer le conteneur Docker qui hébergera la base de données MariaDB:
 ```bash
-docker-compose up
+docker compose up -d --build
 ``` 
 
 Les recettes utilisées dans cette application ont été extraites du livre **Le grand livre Marabout 
