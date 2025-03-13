@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import nController from '../controllers/neighborhoods.mjs';
-import sitesController from '../controllers/sites.mjs';
+import nController from '../controllers/neighborhoods.js';
+import sitesController from '../controllers/sites.js';
 
 const router = Router();
 

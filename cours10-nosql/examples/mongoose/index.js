@@ -2,8 +2,8 @@ import express from 'express';
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
-import nController from './controllers/neighborhoods.mjs';
-import sitesController from './controllers/sites.mjs';
+import nController from './controllers/neighborhoods.js';
+import sitesController from './controllers/sites.js';
 
 const dotEnv = dotenv.config();
 dotenvExpand.expand(dotEnv);

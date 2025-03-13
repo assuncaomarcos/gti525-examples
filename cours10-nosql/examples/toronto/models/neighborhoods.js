@@ -1,4 +1,4 @@
-import dbConnection from '../config/db.mjs';
+import dbConnection from '../config/db.js';
 
 class Neighborhoods {
 

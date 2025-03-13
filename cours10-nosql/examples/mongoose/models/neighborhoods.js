@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {multiPolygonSchema} from "./geojson_schemas.mjs";
+import {multiPolygonSchema} from "./geojson_schemas.js";
 
 const neighborhoodSchema = mongoose.Schema(
     {

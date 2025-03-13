@@ -1,7 +1,7 @@
 import express from 'express';
-import db from './config/db.mjs';
-import pagesRouter from './routers/pages.mjs';
-import apiController from './routers/api.mjs';
+import db from './config/db.js';
+import pagesRouter from './routers/pages.js';
+import apiController from './routers/api.js';
 
 const PORT = process.env.NODE_PORT || 3000;
 const app = express();

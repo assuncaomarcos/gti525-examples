@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {multiPointSchema} from "./geojson_schemas.mjs";
+import {multiPointSchema} from "./geojson_schemas.js";
 
 const siteSchema = mongoose.Schema(
     {
