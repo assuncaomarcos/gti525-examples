@@ -1,7 +1,7 @@
 import {Router} from 'express';
-import dishModel from '../models/dishes.mjs';
-import userController from '../controllers/users.mjs';
-import passport from '../services/passport.mjs';
+import dishModel from '../models/dishes.js';
+import userController from '../controllers/users.js';
+import passport from '../services/passport.js';
 
 const router = Router();
 

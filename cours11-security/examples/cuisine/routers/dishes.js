@@ -1,7 +1,7 @@
 import { Router } from "express";
 import cors from 'cors';
-import dishController from "../controllers/dishes.mjs";
-import passport from "../services/passport.mjs";
+import dishController from "../controllers/dishes.js";
+import passport from "../services/passport.js";
 
 const router = Router();
 router.use(passport.authenticateJWT);

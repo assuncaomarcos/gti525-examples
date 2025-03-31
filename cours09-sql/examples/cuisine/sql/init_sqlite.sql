@@ -41,7 +41,7 @@ INSERT INTO items VALUES (14, 'spaguetti');
 
 INSERT INTO dishes VALUES (1, 'Fettucine carbonara', 0, 'https://img.taste.com.au/yeaSrH46/w643-h428-cfill-q90/taste/2016/11/creamy-fettuccine-carbonara-105940-1.jpeg');
 INSERT INTO dishes VALUES (2, 'Spaghettis au pesto', 1, 'https://assets.afcdn.com/recipe/20150828/19205_w768h583c1cx2048cy3072.webp');
-INSERT INTO dishes VALUES (3, 'Fettuchine alfredo', 1, 'https://www.modernhoney.com/wp-content/uploads/2018/08/Fettuccine-Alfredo-Recipe-1.jpg');
+INSERT INTO dishes VALUES (3, 'Fettuchine alfredo', 1, 'https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Alfredo-dc662e3.jpg');
 
 INSERT INTO ingredients VALUES (1, 1, 500, 'g');
 INSERT INTO ingredients VALUES (1, 2, 60, 'g');

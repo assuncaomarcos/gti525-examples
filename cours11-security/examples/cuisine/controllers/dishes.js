@@ -1,4 +1,4 @@
-import model from '../models/dishes.mjs';
+import model from '../models/dishes.js';
 import Format from 'response-format';
 
 class DishController {

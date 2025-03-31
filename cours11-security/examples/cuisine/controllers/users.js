@@ -1,4 +1,4 @@
-import model from '../models/users.mjs';
+import model from '../models/users.js';
 import Format from 'response-format';
 
 class UserController {

@@ -2,7 +2,7 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 import {Strategy as JWTStrategy, ExtractJwt} from 'passport-jwt';
 import {default as jwt} from 'jsonwebtoken';
-import userModel from '../models/users.mjs';
+import userModel from '../models/users.js';
 import Format from 'response-format';
 
 // Pour sérialiser un utilisateur dans la session

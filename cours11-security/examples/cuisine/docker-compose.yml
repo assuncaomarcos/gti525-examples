@@ -1,7 +1,9 @@
-version: '3.8'
 services:
 
   mongodb:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: gti525/mongodb-cuisine-security:v1.0
     restart: always
     environment:

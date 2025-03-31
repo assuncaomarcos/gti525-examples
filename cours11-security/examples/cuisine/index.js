@@ -1,9 +1,9 @@
 import express from 'express';
-import db from './config/db.mjs';
-import dishRouter from './routers/dishes.mjs';
-import pagesRouter from './routers/pages.mjs';
-import session from './services/session.mjs';
-import passport from './services/passport.mjs';
+import db from './config/db.js';
+import dishRouter from './routers/dishes.js';
+import pagesRouter from './routers/pages.js';
+import session from './services/session.js';
+import passport from './services/passport.js';
 
 const app = express();
 const PORT = process.env.NODE_PORT || 3000;
