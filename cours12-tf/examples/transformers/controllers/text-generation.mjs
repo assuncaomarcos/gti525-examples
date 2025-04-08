@@ -1,26 +1,12 @@
-import { env, pipeline } from '@xenova/transformers';
+import { PipelineFactory, pipelineTasks } from './pipeline.mjs';
 import Format from 'response-format';
 import { body, validationResult } from 'express-validator';
 
-class TextGenerationPipeline {
-    static task = 'text2text-generation';
-    static model = 'Xenova/LaMini-Flan-T5-783M';
-    static instance = null;
-
-    static async getInstance(progress_callback = null) {
-        if (this.instance === null) {
-            env.allowRemoteModels = true;
-            env.allowTokenDownloads = true; // Allowing token downloads
-            env.cacheDir = './.cache';
-
-            this.instance = await pipeline(this.task, this.model, { progress_callback });
-        }
-        return this.instance;
-    }
-}
-
 // Charge le modèle au début, car il peut pendre du temps pour télécharger les fichiers nécessaires.
-const generator = await TextGenerationPipeline.getInstance();
+const generator = await PipelineFactory.getInstance(
+  pipelineTasks.TEXT2TEXT_GENERATION.task,
+  pipelineTasks.TEXT2TEXT_GENERATION.model
+);
 
 const textGeneration = [
     body("text").exists().notEmpty(),
