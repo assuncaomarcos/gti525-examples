@@ -1,4 +1,4 @@
-import { PipelineFactory, pipelineTasks } from './pipeline.mjs';
+import { PipelineFactory, pipelineTasks } from './pipeline.js';
 import Format from 'response-format';
 import { body, validationResult } from 'express-validator';
 

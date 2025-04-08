@@ -2,10 +2,11 @@
   "name": "qna",
   "version": "1.0.0",
   "description": "Example d'usage de Transformers",
-  "main": "index.mjs",
+  "main": "index.js",
+  "type" : "module",
   "scripts": {
-    "start": "node index.mjs",
-    "dev": "nodemon index.mjs"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "GPT-2",
