@@ -1,7 +1,7 @@
 import express from 'express';
 import qnaController from './controllers/question-answering.js';
 import textController from './controllers/text-generation.js';
-// import translationController from './controllers/translation.js';
+import translationController from './controllers/translation.js';
 
 const app = express();
 const PORT = process.env.NODE_PORT || 3000;

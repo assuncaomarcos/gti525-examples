@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Charlie Brown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <h1>Charlie Brown</h1>
+    <p>Salut, je m'appelle Charlie et cette page parle de moi.</p>
+    <p>Il y a un article sur Wikipédia sur moi
+        <a href="https://en.wikipedia.org/wiki/Charlie_Brown">ici</a>.</p>
+
+    <script>
+      function talksAbout(node, str) {
+        if (node.nodeType == Node.ELEMENT_NODE) {
+          for (let i = 0; i < node.childNodes.length; i++) {
+            if (talksAbout(node.childNodes[i], str)) {
+              return true;
+            }
+          }
+          return false;
+        } else if (node.nodeType == Node.TEXT_NODE) {
+          return node.nodeValue.indexOf(str) > -1 ;
+        }
+      }
+
+      console.log(talksAbout(document.body, "article"));
+      console.log(talksAbout(document.body, "livre"));
+    </script>
+</body>
+</html>
