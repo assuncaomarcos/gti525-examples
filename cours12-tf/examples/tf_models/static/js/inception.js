@@ -4,7 +4,7 @@ const preLoader = document.querySelector('.progress');
 
 class InceptionClassifier {
     static instance = null;
-    static modelURL = 'https://tfhub.dev/google/tfjs-model/imagenet/inception_v3/classification/3/default/1';
+    static modelURL = 'https://www.kaggle.com/models/google/inception-v3/TfJs/classification/2';
 
     static async getInstance(callback) {
         if (! this.instance ) {
