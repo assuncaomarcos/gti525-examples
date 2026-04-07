@@ -1,0 +1,81 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.padding-left {
+    margin-left: 15px;
+}
+
+.padding-right {
+    margin-right: 15px;
+}
+
+.classify {
+    width: 100%; cursor: pointer; border-radius: 8px; transition: 0.3s;
+}
+
+.classify:hover { opacity: 0.8; transform: translateY(-5px); }
+
+.tab_group {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tab_content {
+    position: relative;
+    float: left;
+}
+
+.tab_content img, canvas {
+    position: relative;
+    left: 0;
+}
+
+.tab_content p {
+    position: absolute;
+    padding: 5px;
+    background-color: #d2374b;
+    color: #fff;
+    border: 1px dashed rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    font-size: 12px;
+    margin: 0;
+}
+
+.highlighter .label {
+
+}
+
+.credits {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #c0bdbd;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.result {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    vertical-align: center;
+}
+
+.result-box {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 4px;
+    min-height: 50px;
+}
+
+.label { font-weight: bold; color: #1565c0; display: block; }
+.score { font-size: 0.9em; color: #666; }
+
+.highlighter {
+    background: rgba(255, 0, 0, 0.25);
+    border: 1px dashed #fff;
+    z-index: 1;
+    position: absolute;
+}
+
