@@ -9,7 +9,7 @@ const secondTensor = tf.tensor1d(data);
 // Création d'un tenseur float32
 const floatTensor = tf.tensor([1.2, 2.2, 3.3], null, 'float32');
 
-console.log("Nombre de tenseurs:", tf.memory().numTensors);
+console.log("Nombre de tenseurs en mémoire :", tf.memory().numTensors);
 
 // Création d'un tenseur int32
 const intTensor = tf.tensor([1, 2, 3], null, 'int32');
@@ -18,15 +18,20 @@ const intTensor = tf.tensor([1, 2, 3], null, 'int32');
 const boolTensor = tf.tensor([true, true, false]);
 
 // Conversion de type de données
-const newIntTensor = floatTensor.asType('int32');
+const castedTensor = intTensor.asType('float32');
 
-console.log("Nombre de tenseurs:", tf.memory().numTensors);
+console.log("Nombre de tenseurs avant nettoyage :", tf.memory().numTensors);
 
-// Contrairement aux tableaux et autres variables JavaScript, les tenseurs
-// ne sont pas récupérés par le garbage collector de l'engin JavaScript.
-// On doit disposer des tenseurs manuellement.
+// Contrairement aux objets JS classiques, les tenseurs résident dans la mémoire
+// native (C++/GPU) et ne sont pas vus par le Garbage Collector de V8.
+// Oublier de les disposer créera une fuite de mémoire.
+tf.dispose([
+  firstTensor,
+  secondTensor,
+  floatTensor,
+  intTensor,
+  boolTensor,
+  castedTensor
+]);
 
-tf.dispose([firstTensor, secondTensor]);
-tf.dispose([floatTensor, intTensor, boolTensor, newIntTensor]);
-
-console.log("Nombre de tenseurs:", tf.memory().numTensors);
+console.log("Nombre de tenseurs après tf.dispose() :", tf.memory().numTensors);

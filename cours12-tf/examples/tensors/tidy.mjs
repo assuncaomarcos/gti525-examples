@@ -1,27 +1,26 @@
 import tf from '@tensorflow/tfjs-node';
 
-console.log("Nombre de tenseurs au début :", tf.memory().numTensors);
+console.log("Nombre de tenseurs au départ :", tf.memory().numTensors);
 
 let maintain;
+
 tf.tidy(() => {
     maintain = tf.tensor([4, 5, 6]);
     const tensor2 = tf.tensor([4, 5, 6]);
     const tensor3 = tf.tensor([4, 5, 6]);
-    const returned = tf.tensor([4, 5, 6]);
+    const temporary = tf.tensor([4, 5, 6]);
 
-    console.log("Nombre de tenseurs dans le premier tidy :", tf.memory().numTensors);
+    console.log("Tenseurs actifs dans le bloc :", tf.memory().numTensors);
 
-    // Protéger un tenseur
+    // tf.keep() permet d'extraire un tenseur du cycle de nettoyage
     tf.keep(maintain);
 });
 
-console.log("Nombre de tenseurs après le premier tidy :", tf.memory().numTensors);
+console.log("Tenseurs après le premier tidy :", tf.memory().numTensors);
 
-// Disposer des tenseurs manuellement
-// Notez que vous ne pouvez pas disposer du tenseur `returned` ici, car tidy l'a déjà fait
+// Libération manuelle du tenseur protégé
 maintain.dispose();
-
-console.log("Nombre de tenseurs à la fin du premier tidy :", tf.memory().numTensors);
+console.log("Tenseurs après dispose() manuel :", tf.memory().numTensors);
 
 const result = tf.tidy(() => {
     const x = tf.tensor([1, 2, 3]);
@@ -36,5 +35,5 @@ const result = tf.tidy(() => {
     return sum.square();
 });
 
-console.log("Nombre de tenseurs à la fin du deuxième tidy :", tf.memory().numTensors);
+console.log("Tenseurs après calcul (seul le résultat reste) :", tf.memory().numTensors);
 result.print();

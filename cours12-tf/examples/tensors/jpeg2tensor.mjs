@@ -1,16 +1,16 @@
 import * as tf from "@tensorflow/tfjs-node";
 import { readFileSync } from "node:fs";
 
-// Charger l'image de Marseille
-const marseilleImage = readFileSync("images/marseille_med.jpg");
+// Charger l'image
+const imageBuffer = readFileSync("opera_house.jpg");
 
-// Utiliser tf.tidy pour libérer la mémoire automatiquement
+// Utiliser tf.tidy pour libérer de la mémoire
 tf.tidy(() => {
     // Créer un tenseur en couleur à partir de l'image
-    const marseilleTensor = tf.node.decodeImage(marseilleImage);
-    console.log(`Tenseur créé à partir de l'image : ${marseilleTensor.shape}`);
+    const imageTensor = tf.node.decodeImage(imageBuffer);
+    console.log(`Tenseur couleur créé : ${imageTensor.shape}`); // [Hauteur, Largeur, 3]
 
-    // Créer un tenseur en niveaux de gris à partir de l'image
-    const marseilleBWTensor = tf.node.decodeImage(marseilleImage, 1);
-    console.log(`Tenseur créé à partir de l'image en niveaux de gris : ${marseilleBWTensor.shape}`);
+    // Décodage en niveaux de gris (Force 1 seul canal)
+    const imageBWTensor = tf.node.decodeImage(imageBuffer, 1);
+    console.log(`Tenseur noir et blanc créé : ${imageBWTensor.shape}`); // [Hauteur, Largeur, 1]
 });
