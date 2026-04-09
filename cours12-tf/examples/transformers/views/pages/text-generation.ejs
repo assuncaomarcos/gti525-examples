@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Exemple d'utilisation d'un générateur de texte</title>
     <%- include('../partials/head'); %>
+    <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
     <script type="module" src="js/text.js"></script>
 </head>
 <body>
@@ -32,7 +34,7 @@
     <div class="row answer_container hide">
         <div class="col s12">
             <h4>Réponse :</h4>
-            <div class="flow-text generated_text"></div>
+            <div class="generated_text"></div>
         </div>
     </div>
 </main>

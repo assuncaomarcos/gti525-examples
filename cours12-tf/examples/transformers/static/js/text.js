@@ -1,23 +1,16 @@
-import { sendJSON } from "./request.js";
+import { handleFormSubmit } from "./request.js";
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 const divAnswer = document.querySelector(".generated_text");
 const answerContainer = document.querySelector(".answer_container");
 
 async function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const request = { text: form.text.value };
-    try {
-        const response = await sendJSON(form.method, form.action, request);
-        if (!response.error && response?.data?.generated_text) {
-            const { generated_text } = response.data;
-            answerContainer.classList.remove("hide");
-            divAnswer.textContent = generated_text;
-        } else {
-            M.toast({html: `Erreur: ${response.message}`});
-        }
-    } catch (error) {
-        M.toast({html: `Erreur: ${error.message}`});
-    }
+    const request = { text: event.currentTarget.text.value };
+    await handleFormSubmit(event, request, (data) => {
+        answerContainer.classList.remove("hide");
+        divAnswer.innerHTML = marked.parse(data);
+        hljs.highlightAll();
+    });
 }
 
 const hideAnswer = () => {
